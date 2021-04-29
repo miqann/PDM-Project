@@ -51,39 +51,35 @@ class Sidebar extends Component {
                  <div class="container-fluid">
                      <button type="button" id="sidebarCollapse" class="btn  btn-info">
                          <i class="fas fa-align-left"></i>
-                         <span>Toggle Sidebar</span>
+                         <span> Sidebar</span>
                      </button>
                  </div>
                    </nav>
                    <br></br>
-    <h1>Login</h1>
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1"/>
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-  <div class="line"></div>
-  <h1>Lorem Ipsum</h1>
-
-   <p>
-    	It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-    	
-    </p>
-        </div>
-        </div>
-        );
+            
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="img">
+                    <img src="https://sep.yimg.com/ay/ytimes/aabaco-yahoo-store-customer-registration-3.png"/>
+                </div>
+                    <div class="cover">
+                        <h2>Khách hàng cá nhân</h2>
+                        <a href="#" class="btn btn-primary">Đăng nhập</a>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="img">
+                    <img src="https://sep.yimg.com/ay/ytimes/aabaco-yahoo-store-customer-registration-3.png"/>
+                </div>
+                    <div class="cover">
+                        <h2>Khách hàng cá nhân</h2>
+                        <a href="#" class="btn btn-primary">Đăng kí</a>
+                    </div>   
+                </div>
+            </div>       
+    </div>
+    </div>
+    );
     }
 }
 

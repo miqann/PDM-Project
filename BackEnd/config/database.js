@@ -1,4 +1,6 @@
-const {Sequelize} = require('sequelize');
+const {Sequelize} = require('sequelize'); // get sequelize
+
+// create and connect to mysql database
 var db = new Sequelize('books', 'root', 'pa', {
     host: 'localhost',
     dialect: 'mysql',
@@ -9,6 +11,8 @@ var db = new Sequelize('books', 'root', 'pa', {
       idle: 10000
     },
 });
+
+//test connection
 db.authenticate() 
     .then(() => {
         console.log('connected to database')

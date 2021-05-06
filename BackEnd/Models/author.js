@@ -16,5 +16,5 @@ const author = db.define('author', {
 }, {
         timestamps: false
     })
-db.sync();
+db.sync(); //compare to database
 module.exports = author;

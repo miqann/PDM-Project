@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import LoginPage from './LoginPage';
 import './style.css';
 
-class Sidebar extends Component {
+function validate(){
+    console.log(LoginPage);
+}
+class Main extends Component {
     render() {
         return (
-            <div class="wrapper">
+            <div class="wrapper"> {/*Menu components*/}
             <nav id="sidebar">
                  <div class="sidebar-header">
                      <h1>MENU</h1>  
@@ -45,8 +49,8 @@ class Sidebar extends Component {
                  </ul>
             </nav>
            
+           {/* Button Sidebar */}
            <div id="content">
-               
              <nav class="navbar navbar-expand-lg navbar-light bg-light">
                  <div class="container-fluid">
                      <button type="button" id="sidebarCollapse" class="btn  btn-info">
@@ -57,14 +61,15 @@ class Sidebar extends Component {
                    </nav>
                    <br></br>
             
+            {/* Move to Login + Register Page*/}
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div class="img">
                     <img src="https://sep.yimg.com/ay/ytimes/aabaco-yahoo-store-customer-registration-3.png"/>
                 </div>
                     <div class="cover">
-                        <h2>Khách hàng cá nhân</h2>
-                        <a href="#" class="btn btn-primary">Đăng nhập</a>
+                        <h2>Have an account?</h2>
+                        <a class="btn btn-primary" href="#">Login now!</a>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -72,8 +77,8 @@ class Sidebar extends Component {
                     <img src="https://sep.yimg.com/ay/ytimes/aabaco-yahoo-store-customer-registration-3.png"/>
                 </div>
                     <div class="cover">
-                        <h2>Khách hàng cá nhân</h2>
-                        <a href="#" class="btn btn-primary">Đăng kí</a>
+                        <h2>Don't have an account yet?</h2>
+                        <a href="#" class="btn btn-primary">Register now!</a>
                     </div>   
                 </div>
             </div>       
@@ -83,4 +88,4 @@ class Sidebar extends Component {
     }
 }
 
-export default Sidebar;
+export default Main;

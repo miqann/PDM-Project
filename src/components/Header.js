@@ -33,6 +33,7 @@ class Header extends Component {
                   </li>
                 </ul>
 
+                {/*Dark Mode Button*/}
                 <div class="custom-control custom-switch mr-5">
                   <input type="checkbox" class="custom-control-input" id="selector"/>
                   <label class="custom-control-label" for="selector">Dark Mode</label>

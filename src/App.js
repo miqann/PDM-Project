@@ -1,12 +1,14 @@
 import Header from './components/Header'
 import { BrowserRouter as Router } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
+import Main from './components/Main';
+import LoginPage from './components/LoginPage';
 
 function App() {
     return(
         <Router>
             <Header/>
-            <Sidebar/>
+            <Main/>
+            
         </Router>
         
     );

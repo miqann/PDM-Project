@@ -1,7 +1,7 @@
 const {Sequelize} = require('sequelize'); // get sequelize
 
 // create and connect to mysql database
-var db = new Sequelize('books', 'root', 'pa', {
+var db = new Sequelize('banking', 'root', 'pa', {
     host: 'localhost',
     dialect: 'mysql',
   

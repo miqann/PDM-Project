@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var controlAuthor = require('../Controllers/author');
+var controlCustomer = require('../Controllers/CustomerControl');
 /* GET author listing. */
-router.get('/', controlAuthor.getAuthor);
+router.get('/', controlCustomer.getCustomer);
 
 module.exports = router;

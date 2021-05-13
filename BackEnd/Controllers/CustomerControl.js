@@ -1,0 +1,12 @@
+    
+const CustomerModel = require('../Models/CustomerModel');
+//select author from database
+exports.getCustomer = (req, res, next) => {
+        CustomerModel.findAll()
+            .then(result => {
+                res.json(result);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+}

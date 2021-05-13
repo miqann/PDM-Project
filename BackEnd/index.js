@@ -4,7 +4,7 @@ var app = express();
 var port = 1080;
 
 
-var authorsRouter = require('./routes/author'); //router to author
+var CustomerRoute = require('./routes/CustomerRoute'); //router to author
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -29,7 +29,7 @@ app.use(function(req, res, next) {
 // app.get('/user/:id', function (req, res, next) {
 //   res.send('USER')
 // })
-app.use('/users', authorsRouter);  // /users is api to call
+app.use('/customers', CustomerRoute);  // /users is api to call
 
 // start at port 1080
   app.listen(port, () => {

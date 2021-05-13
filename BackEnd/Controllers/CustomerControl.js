@@ -1,8 +1,8 @@
-    
-const CustomerModel = require('../Models/CustomerModel');
+
+const customerModel = require('../Models/CustomerModel');
 //select author from database
 exports.getCustomer = (req, res, next) => {
-        CustomerModel.findAll()
+        customerModel.findAll()
             .then(result => {
                 res.json(result);
             })

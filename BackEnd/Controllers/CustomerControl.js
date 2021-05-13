@@ -1,5 +1,5 @@
 
-const customerModel = require('../Models/CustomerModel');
+const customerModel = require('../Models/CustomerModels/CustomerModel');
 //select author from database
 exports.getCustomer = (req, res, next) => {
         customerModel.findAll()

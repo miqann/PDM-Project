@@ -1,8 +1,9 @@
-header{
+
+
+.head{
 	width: 100%;
 	height: 8%;
 	background-color: rgb(240, 169, 184);
-	
 	
 }
 
@@ -48,7 +49,7 @@ p{
 }
 
 .pos{
-	margin: 0 0 0 500px;
+	margin: 0 0 0 550px;
 }
 
 .dropdown-nav{
@@ -69,10 +70,7 @@ a:focus{
 	transition: all 0.3s;
 }
 
-/* Side Bar*/
-#sidebar.active {
-    margin-left: -250px;
-}
+
 .wrapper{
 	display: flex;
 	text-decoration: none;
@@ -83,64 +81,14 @@ a:focus{
 }
 
 
-#sidebar{
-	min-width: 250px;
-	max-width: 250px;
-	background: rgb(255, 165, 104);
-	color: #fff;
-	transition: all 0.3s;
-}
 
 
-#sidebar .sidebar-header{
-
-	padding: 20px;
-	background: rgb(255, 165, 104);
-}
-#sidebar ul.components{
-	padding: 20px 0;
-	border-bottom: 1px solid rgb(255, 111, 16);
-}
-
-#sidebar ul p{
-	color: #fff;
-	padding: 10px;
-}
-
-#sidebar ul li a{
-	padding: 10px;
-	font-size: 1.1em;
-	display: block;
-}
-
-#sidebar ul li a:hover{
-	color: rgb(255, 165, 104);
-	background: #fff;
-}
-#sidebar ul li.active>a,
-a[aria-expanded="true"] {
-	color: #fff;
-	background: rgb(255, 165, 104);
-}
 
 a[data-toggle="collapse"]{
 	position: relative;
 }
 .nav-link{
 	position: absolute;
-}
-
-.dropdown-toggle::after{
-	display: block;
-	position: absolute;
-	top: 50%;
-	right: 20%;
-	transform: translateY(-50%);
-}
-ul ul a{
-	font-size: 0.9em !important;
-	padding-left: 30px !important;
-	background: rgb(255, 165, 104);
 }
 
 #content{
@@ -167,6 +115,153 @@ ul ul a{
     }
 }
 
+.register{
+	margin: 5% 20% 0 25% ;
+    height:620px;
+    width:60%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    color:black;
+    justify-content:center;
+    
+}
+.bodyRegister{
+    margin: 7% 10% 0 10% ;
+    height:620px;
+    width:85%;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    color:black;
+    justify-content:space-around;
+    background-color: rgba(255, 255, 255, 0.7);
+	
+}
+
+.city{
+    position: relative;
+}
+
+::placeholder{
+    color: rgb(96, 205, 255);
+    font-weight: bold;
+}
+
+.main{
+    width: 400px;
+    height:730px;
+    padding:10px 25px 35px 35px;
+    margin-left: -100px;
+    margin-top: 100px;
+    border-radius:20px;
+    font-family:sans-serif;
+    font-weight:700;
+}
+
+.title1{
+	text-align:center;
+    font-size:40px;
+    color: rgb(96, 205, 255) ;
+    letter-spacing:.5px;
+    font-family: gotham;
+	margin-top: 50px;
+}
+.title{
+    text-align:center;
+    font-size:40px;
+    color: rgb(96, 205, 255) ;
+    letter-spacing:.5px;
+    font-family: gotham;
+}
+.credentials{
+    width:100%;
+    padding:2px 5px 0px 5px;
+}
+.credentials input{
+    border:none;
+    outline:none;
+    background:none;
+    font-size:18px;
+    color:rgb(240, 169, 184);
+    padding:20px 10px 20px 5px;
+    letter-spacing: 1px;
+}
+.username{
+    margin-bottom:20px;
+    border-bottom:2px solid rgb(240, 169, 184);
+    transition:.5s ease;
+}
+.username:hover{
+    border-bottom:3px solid rgb(182, 232, 255);
+}
+.phone{
+    margin-bottom:20px;
+    border-bottom:2px solid rgb(240, 169, 184);
+    transition:.5s ease;
+}
+.phone:hover{
+    border-bottom:3px solid rgb(182, 232, 255);
+}
+.email{
+    margin-bottom:20px;
+    border-bottom:2px solid rgb(240, 169, 184);
+    transition:.5s ease;
+}
+.email:hover{
+    border-bottom:3px solid rgb(182, 232, 255);
+}
+.city{
+    margin-bottom:20px;
+    border-bottom:2px solid rgb(240, 169, 184);
+    transition:.5s ease;
+}
+.city:hover{
+    border-bottom:3px solid rgb(182, 232, 255);
+}
+.password{
+    margin-bottom:30px;
+    border-bottom:2px solid rgb(240, 169, 184);
+    transition:.5s ease;
+}
+.password:hover{
+    border-bottom:3px solid rgb(182, 232, 255);
+}
+.submit{
+    outline:none;
+    border:none;
+    width:100%;
+    height:60px;
+    border-radius:30px;
+    color:#fff;
+    font-size:20px;
+    font-weight:700;
+    text-align:center;
+    background-image:linear-gradient(to right, rgb(182, 232, 255) 0%, rgb(240, 169, 184) 51%, rgb(182, 232, 255) 100%);
+    background-size:200%;
+    box-shadow: 3px 3px 8px whitesmoke,
+                -3px -3px 8px #fff;
+    transition:.5s;
+}
+.submit:hover{
+    background-position:right;
+}
+.link{
+    text-align:center;
+    display: flex;
+    
+}
+
+.distance{
+    margin-right:50px;
+    margin-left: 35px;
+
+}
+.link a{
+    color : rgb(236, 135, 157);
+    font-size: 15px;
+    text-decoration: underline;
+}
 
 
 

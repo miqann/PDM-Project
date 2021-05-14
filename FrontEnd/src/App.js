@@ -8,8 +8,8 @@ function App() {
     return(
         <Router>
             <HomePage/>
-            <LoginPage/>
-            <RegisterPage/>
+            {/* <LoginPage/>
+            <RegisterPage/> */}
             
         </Router>
         

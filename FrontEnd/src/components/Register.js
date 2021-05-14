@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-import Search from './search1.png';
+import {BrowserRouter, Route, Link } from 'react-router-dom'
 import Background from './bg3.png';
 import {UserOutlined, PhoneOutlined, MailOutlined, HomeOutlined, LockOutlined } from '@ant-design/icons';
 
@@ -39,8 +39,8 @@ class Register extends Component{
                                 <button type="submit" class="submit">Register</button>
                             </form>
                             <div class="link">
-                                <a class="distance" href="./HomePage.js">Back</a>
-                                <a href="#">Need help? Contact us.</a> 
+                                <Link class="distance" to="./HomePage">Back</Link>
+                                <Link to="#">Need help? Contact us.</Link> 
                         
                             </div>
                         </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
+import {BrowserRouter, Route ,Link } from 'react-router-dom';
 import Search from './search1.png';
 import Background from './bg3.png';
 import {UserOutlined, PhoneOutlined, MailOutlined, HomeOutlined, LockOutlined } from '@ant-design/icons';
@@ -14,17 +15,17 @@ class Homepage extends Component {
                 {/* Header */}
                 <div class="head">                
                     <header class="navbar navbar-expand navbar-light  flex-md-row">
-                        <a class="navbar-brand font-weight-bold" href="#">MDQT Bank</a>
+                        <a class="navbar-brand font-weight-bold" href="./HomePage.js">MDQT Bank</a>
                         <div class="navbar-nav-scroll" >
                             <ul class="navbar-nav bd-navbar-nav flex-row" >
                                 <li class="nav-item flex-item" >
-                                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                    <a class="nav-link active" aria-current="page" href="./HomePage.js">Home</a>
                                 </li>
                                 <li class="nav-item flex-item">
-                                    <a class="nav-link" href="./Login.js">Login</a>
+                                    <Link class="nav-link" to="./Login">Login</Link>
                                 </li>
                                 <li class="nav-item flex-item">
-                                    <a class="nav-link" href="./Register.js">Signin</a>
+                                    <Link class="nav-link" to="./Register">Signin</Link>
                                 </li>
                             
                             </ul>

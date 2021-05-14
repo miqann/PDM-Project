@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './style.css';
-import Search from './search1.png';
+import {BrowserRouter, Route, Link } from 'react-router-dom'
 import Background from './bg3.png';
-import {UserOutlined, PhoneOutlined, MailOutlined, HomeOutlined, LockOutlined } from '@ant-design/icons';
+import {UserOutlined, LockOutlined } from '@ant-design/icons';
+
 
 class Login extends Component{
     render(){
@@ -26,8 +27,8 @@ class Login extends Component{
                             <button type="submit" class="submit">Login</button>
                         </form>
                         <div class="link">
-                            <a class="distance" href="./HomePage.js">Back</a>
-                            <a href="#">Forget your password? Contact us.</a> 
+                            <Link class="distance" to="./HomePage">Back</Link>
+                            <Link to="#">Forget your password? Contact us.</Link> 
                         </div>
                     </div>
                 </div>

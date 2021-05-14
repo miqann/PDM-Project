@@ -1,7 +1,3 @@
-body{
-	font-family: 'Poppins', sans-serif;
-	background: #fafafa;
-}
 p{
 	font-family: 'Poppins', sans-serif;
 	font-size: 1.1em;
@@ -25,6 +21,8 @@ a:focus{
 	display: flex;
 	text-decoration: none;
 	transition: all 0.3s;
+	background: #fafafa;
+	font-family: 'Poppins', sans-serif;
 }
 
 #sidebar{

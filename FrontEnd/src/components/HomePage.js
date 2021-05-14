@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import LoginPage from './LoginPage';
 import './style.css';
 
-function validate(){
-    console.log(LoginPage);
-}
-class Main extends Component {
+
+class HomePage extends Component {
     render() {
         return (
             <div class="wrapper"> {/*Menu components*/}
@@ -50,7 +47,7 @@ class Main extends Component {
             </nav>
            
            {/* Button Sidebar */}
-           <div id="content">
+           <div id="form">
              <nav class="navbar navbar-expand-lg navbar-light bg-light">
                  <div class="container-fluid">
                      <button type="button" id="sidebarCollapse" class="btn  btn-info">
@@ -78,14 +75,16 @@ class Main extends Component {
                 </div>
                     <div class="cover">
                         <h2>Don't have an account yet?</h2>
-                        <a href="RegisterPage.js" class="btn btn-primary">Register now!</a>
+                        <a href="/register" class="btn btn-primary">Register now!</a>
                     </div>   
+                    
                 </div>
             </div>       
     </div>
     </div>
+    
     );
     }
 }
 
-export default Main;
+export default HomePage;

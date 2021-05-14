@@ -1,7 +1,7 @@
-body{
+.bodyRegister{
 	margin:0;
-	height:80vh;
-	width: 100vw;
+	height:650px;
+	width:100%;
 	overflow:hidden;
 	display:flex;
 	align-items:center;
@@ -18,11 +18,12 @@ body{
 
 ::placeholder{
 	color: #663300;
+	font-weight: bold;
 }
 
 .main{
 	width: 400px;
-	height:600px;
+	height:730px;
 	padding:10px 25px 35px 35px;
 	margin-left: -100px;
 	margin-top: 120px;
@@ -120,4 +121,3 @@ body{
 	font-size:15px;
 	text-decoration:none;
 }
-

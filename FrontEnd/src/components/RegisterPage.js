@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './RegisterPage.css';
+import {UserOutlined, PhoneOutlined, MailOutlined, HomeOutlined, LockOutlined } from '@ant-design/icons';
 
-class RegisterPage extends React.Component {
+class RegisterPage extends Component {
     constructor(props){
         super(props);
-        this.state = {value: 'Ho chi Minh'};
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     
@@ -15,35 +15,30 @@ class RegisterPage extends React.Component {
 
     render (){
         return (
+            <div class="bodyRegister">
             <div class="main">
             <div class="logo"></div>
             <div class="title">Register Page</div>
             <form onSubmit={this.handleSubmit}>
                 <div class="credentials">
                     <div class="username">
-                        <span class="glyphicon glyphicon-user"></span>
+                        <UserOutlined />
                         <input type="text" name="username" placeholder="Username" required="true"></input>
                     </div>
                     <div class="phone">
-                        <span class="glyphicon glyphicon-phone"></span>
+                        <PhoneOutlined />
                         <input type="text" name="phone" placeholder="Phone number" required="true"></input>
                     </div>
                     <div class="email">
-                        <span class="glyphicon glyphicon-envelope"></span>
+                        <MailOutlined />
                         <input type="text" name="username" placeholder="Email address" required="true"></input>
                     </div>
                     <div class="city">
-                        <span class="glyphicon glyphicon-home"></span>
-                        <select class="form-select" required="true">
-                            <option selected>Choose your city</option>
-                            <option value="Ho Chi Minh City">Ho Chi Minh City</option>
-                            <option value="Da Nang">Da Nang</option>
-                            <option value="Hue">Hue</option>
-                            <option value="Nha Trang">Nha Trang</option>
-                        </select>
+                        <HomeOutlined />
+                        <input type="text" name="city" placeholder="Your city" required="true"></input>
                     </div>
                     <div class="password">
-                        <span class="glyphicon glyphicon-lock"></span>
+                        <LockOutlined />
                         <input type="password" name="password" placeholder="Password" required="true"></input>
                     </div>
                 </div>
@@ -51,6 +46,7 @@ class RegisterPage extends React.Component {
             </form>
             <div class="link">
                 <a href="#">Need help?</a>&nbsp;<a href="#">Contact us.</a> 
+            </div>
             </div>
             </div>
             );

@@ -1,13 +1,18 @@
-import Header from './components/Header'
-import { BrowserRouter as Router } from 'react-router-dom';
-import Main from './components/Main';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+
+import HomePage from './components/HomePage';
 import RegisterPage from './components/RegisterPage';
+
 
 function App() {
     return(
-        <Router>
-            <RegisterPage/>
-        </Router>
+        <>
+        <Switch>
+            <Route path="/" component={HomePage} exact />
+            <Route path="/register" component={RegisterPage} exact />
+        </Switch>
+        </>
     );
 }
 

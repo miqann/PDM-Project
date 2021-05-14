@@ -31,7 +31,7 @@ class RegisterPage extends Component {
                     </div>
                     <div class="email">
                         <MailOutlined />
-                        <input type="text" name="username" placeholder="Email address" required="true"></input>
+                        <input type="text" name="email" placeholder="Email address" required="true"></input>
                     </div>
                     <div class="city">
                         <HomeOutlined />
@@ -45,7 +45,7 @@ class RegisterPage extends Component {
                 <button type="submit" class="submit">Register</button>
             </form>
             <div class="link">
-                <a href="#">Need help?</a>&nbsp;<a href="#">Contact us.</a> 
+                <a href="#">Need help? Contact us.</a> 
             </div>
             </div>
             </div>

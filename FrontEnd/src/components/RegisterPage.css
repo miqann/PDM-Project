@@ -1,6 +1,6 @@
 .bodyRegister{
-	margin:0;
-	height:650px;
+	margin: auto;
+	height:620px;
 	width:100%;
 	overflow:hidden;
 	display:flex;
@@ -26,7 +26,7 @@
 	height:730px;
 	padding:10px 25px 35px 35px;
 	margin-left: -100px;
-	margin-top: 120px;
+	margin-top: 100px;
 	border-radius:20px;
 	font-family:sans-serif;
 	font-weight:700;
@@ -117,7 +117,7 @@
 	text-align:center;
 }
 .link a{
-	color : black;
-	font-size:15px;
-	text-decoration:none;
+	color : chartreuse;
+	font-size: 15px;
+	text-decoration: underline;
 }

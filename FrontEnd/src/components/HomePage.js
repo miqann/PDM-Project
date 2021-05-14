@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './style.css';
-
-
 class HomePage extends Component {
     render() {
         return (
@@ -66,7 +64,7 @@ class HomePage extends Component {
                 </div>
                     <div class="cover">
                         <h2>Have an account?</h2>
-                        <a class="btn btn-primary" href="#">Login now!</a>
+                        <a class="btn btn-primary" href="/login">Login now!</a>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">

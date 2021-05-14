@@ -113,8 +113,15 @@
 	background-position:right;
 }
 .link{
-	margin:10px;
 	text-align:center;
+	display: flex;
+	
+}
+
+.distance{
+	margin-right:50px;
+	margin-left: 35px;
+
 }
 .link a{
 	color : chartreuse;

@@ -78,7 +78,7 @@ class Main extends Component {
                 </div>
                     <div class="cover">
                         <h2>Don't have an account yet?</h2>
-                        <a href="#" class="btn btn-primary">Register now!</a>
+                        <a href="RegisterPage.js" class="btn btn-primary">Register now!</a>
                     </div>   
                 </div>
             </div>       

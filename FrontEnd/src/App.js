@@ -1,11 +1,15 @@
 
 import { BrowserRouter as Router } from 'react-router-dom';
-import Main from './components/Main';
+import HomePage from './components/HomePage';
+import LoginPage from './components/Login';
+import RegisterPage from './components/Register';
 
 function App() {
     return(
         <Router>
-            <Main/>
+            <HomePage/>
+            <LoginPage/>
+            <RegisterPage/>
             
         </Router>
         

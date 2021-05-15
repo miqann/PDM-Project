@@ -39,7 +39,7 @@ class Register extends Component{
                                 <button type="submit" class="submit">Register</button>
                             </form>
                             <div class="link">
-                                <Link class="distance" to="./HomePage">Back</Link>
+                                <Link class="distance" to="./">Back</Link>
                                 <Link to="#">Need help? Contact us.</Link> 
                         
                             </div>

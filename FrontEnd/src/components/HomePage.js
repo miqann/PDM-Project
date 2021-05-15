@@ -15,11 +15,11 @@ class Homepage extends Component {
                 {/* Header */}
                 <div class="head">                
                     <header class="navbar navbar-expand navbar-light  flex-md-row">
-                        <a class="navbar-brand font-weight-bold" href="./HomePage.js">MDQT Bank</a>
+                        <a class="navbar-brand font-weight-bold" href="./">MDQT Bank</a>
                         <div class="navbar-nav-scroll" >
                             <ul class="navbar-nav bd-navbar-nav flex-row" >
                                 <li class="nav-item flex-item" >
-                                    <a class="nav-link active" aria-current="page" href="./HomePage.js">Home</a>
+                                    <a class="nav-link active" aria-current="page" href="./">Home</a>
                                 </li>
                                 <li class="nav-item flex-item">
                                     <Link class="nav-link" to="./Login">Login</Link>

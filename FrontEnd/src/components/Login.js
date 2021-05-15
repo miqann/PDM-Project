@@ -27,7 +27,7 @@ class Login extends Component{
                             <button type="submit" class="submit">Login</button>
                         </form>
                         <div class="link">
-                            <Link class="distance" to="./HomePage">Back</Link>
+                            <Link class="distance" to="./">Back</Link>
                             <Link to="#">Forget your password? Contact us.</Link> 
                         </div>
                     </div>

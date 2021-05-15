@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './style.css';
-import {BrowserRouter, Route ,Link } from 'react-router-dom';
-import Background from './image/bg3.png';
-import {UserOutlined, PhoneOutlined, MailOutlined, HomeOutlined, LockOutlined } from '@ant-design/icons';
+import {Link } from 'react-router-dom';
+import Background from './image/bg2.png';
+
 
 
 class Homepage extends Component {

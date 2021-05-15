@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './style.css';
-import Background from './image/bg3.png';
+import Background from './image/bg2.png';
 import {UserOutlined, LockOutlined } from '@ant-design/icons';
-
+import { Link } from 'react-router-dom';
 
 class Login extends Component{
     constructor(props){

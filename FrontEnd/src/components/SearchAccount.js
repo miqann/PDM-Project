@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import {Link } from 'react-router-dom';
-import Background from './bg3.png';
+import Background from './image/bg2.png';
 class SearchCustomer extends Component {
     render() {
         return (

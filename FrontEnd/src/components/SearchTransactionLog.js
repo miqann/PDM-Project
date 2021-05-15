@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import './style.css';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Background from './bg3.png';
-class SearchCustomer extends Component {
+
+
+
+class SearchTransactionLog extends Component {
     render() {
         return (
             // Container 
@@ -52,42 +55,39 @@ class SearchCustomer extends Component {
                             </div>
                         </div>       
                     </header>
+
                 <div class="container">
-                    <h4>Search Account</h4>
+                    <h4>Search TransactionLog</h4>
                     <form>
                         <div class="input-group mb-1">
                             <span class="input-group-text" id="basic-addon">Account ID</span>
-                            <input type="text" name="accountid" class="form-control" aria-label="Accountname" aria-describedby="basic-addon"></input>
-                            <span class="input-group-text" id="basic-addon">Customer Name</span>
-                            <input type="text" name="username" class="form-control" aria-label="date" aria-describedby="basic-addon"></input>
-                            <span class="input-group-text" id="basic-addon">Date Opened</span>
-                            <input type="text" name="date" class="form-control" aria-label="balance" aria-describedby="basic-addon"></input>
+                            <input type="text" name="accountid" class="form-control" aria-label="accountid" aria-describedby="basic-addon"></input>
+                            <span class="input-group-text" id="basic-addon">Customer ID</span>
+                            <input type="text" name="customerid" class="form-control" aria-label="customerid" aria-describedby="basic-addon"></input>
                         </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                         <input class="btn btn-primary" type="submit" value="Search"></input>
                         </div>
                     </form>
-                    <table class="table align-center table-striped">
+                    <table class="table table-striped align-center">
                         <thead>
                             <tr>
-                            <th scope="col">Acount ID</th>
-                            <th scope="col">Account Name</th>
-                            <th scope="col">Customer ID</th>
-                            <th scope="col">Customer Name</th> 
-                            <th scope="col">Date Opened</th> 
-                            <th scope="col">Account Status</th> 
-                            <th scope="col">Account Type</th> 
+                            <th scope="col">Transaction ID</th>
+                            <th scope="col">Transaction Date</th>
+                            <th scope="col">Transaction Type</th>
+                            <th scope="col">Transaction Account</th>
+                            <th scope="col">Transaction Amount</th>
+                            <th scope="col">Transaction Status</th> 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td scope="row">1</td>
                                 <td>Mark</td>
-                                <td>01</td>
-                                <td>Phan Thi</td>
-                                <td>19/05/2020</td>
-                                <td>Online</td>
-                                <td>Vjp</td>
+                                <td>0909999999</td>
+                                <td>test@gmail.com</td>
+                                <td>Nha Trang</td>
+                                <td>Nha Trang</td>
                             </tr>
                         </tbody>
                     </table>
@@ -109,4 +109,4 @@ class SearchCustomer extends Component {
     }
 }
 
-export default SearchCustomer;
+export default SearchTransactionLog;

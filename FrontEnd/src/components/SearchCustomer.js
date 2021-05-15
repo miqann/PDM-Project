@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
-import {BrowserRouter, Route ,Link } from 'react-router-dom';
-import Search from './search1.png';
+import { Link } from 'react-router-dom';
 import Background from './bg3.png';
-import {UserOutlined, PhoneOutlined, MailOutlined, HomeOutlined, LockOutlined } from '@ant-design/icons';
 
 
 class SearchCustomer extends Component {
@@ -26,14 +24,19 @@ class SearchCustomer extends Component {
                                 <li class="nav-item flex-item">
                                     <Link class="nav-link" to="/register">Signin</Link>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <li class="dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Search
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/searchcustomer">Search Customer</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="/searchaccount">Search Account</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/searchloginlog">Search LoginLog</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/searchtransactionlog">Search TransactionLog</a>     
+                                    
                                     </div>
                                </li>
                             </ul>
@@ -66,7 +69,7 @@ class SearchCustomer extends Component {
                             <input type="text" name="city" class="form-control" aria-label="City" aria-describedby="basic-addon"></input>
                         </div>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <input class="btn btn-primary" type="submit" value="Search"></input>
+                            <input class="btn btn-primary" type="submit" value="Search"></input>
                         </div>
                     </form>
                     <table class="table table-striped align-center">

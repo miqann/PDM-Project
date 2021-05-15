@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-import {BrowserRouter, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Background from './bg3.png';
 import {UserOutlined, LockOutlined } from '@ant-design/icons';
 

@@ -1,4 +1,25 @@
+h4{
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
 
+.btn-primary{
+    color: black;
+    background-color: rgb(240, 169, 184);
+    font-weight: bold;
+}
+
+th{
+    color: red;
+    background-color: rgb(240, 169, 184);
+}
+
+.input-group-text{
+    color: black;
+    background-color: rgb(240, 169, 184);
+    font-weight: bold;
+}
 
 .head{
 	width: 100%;
@@ -28,11 +49,11 @@ p{
 .distance-btn{
 	margin-left:200px;
 }
+
 .btn{
 
 	border: white solid 1px;
 	border-radius: 100px;
-	
 }
 
 .btn-size{
@@ -51,7 +72,6 @@ p{
 
 .dropdown-nav{
 	background-color: rgb(255, 211, 182);
-	
 }
 
 .flex-item{

@@ -5,7 +5,7 @@ import Background from './image/bg2.png';
 
 
 
-class Homepage extends Component {
+class HomePage extends Component {
     render() {
         return (
 

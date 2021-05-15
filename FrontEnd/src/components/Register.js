@@ -18,7 +18,22 @@ class Register extends Component{
     render(){
         return(
             <div style={{ backgroundImage: `url(${Background})` }} class="wrapper"> 
-                 <div class="bodyRegister">
+                <div class="head">  
+                    <header class="navbar-expand  flex-row flex-md-row">              
+                        <Link class=" brand" to="./">MDQT BANK</Link>
+                            <div class="searching" >
+                                <ul class="navbar-nav" >
+                                    <li class="nav-item flex-item" >
+                                        <Link class="nav-link active" aria-current="page" to="./">Home</Link>
+                                    </li>
+                                    <li class="nav-item flex-item">
+                                        <Link class="nav-link" to="./Register">Log In</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                    </header>
+
+                    <div class="bodyRegister">
                         <div class="main">
                             <div class="logo"></div>
                             <div class="title">Register</div>
@@ -53,6 +68,7 @@ class Register extends Component{
                         
                             </div>
                         </div>
+                    </div>    
                 </div>
             </div>
         );

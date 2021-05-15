@@ -1,22 +1,40 @@
 h4{
+	font-family: 'Times New Roman', Times, serif;
     text-align: center;
     padding: 20px;
     font-weight: bold;
+	color:rgb(236, 135, 157);
+	font-size:50px;
+	text-decoration: underline;
 }
 
 .btn-primary{
-    color: black;
-    background-color: rgb(240, 169, 184);
+	width: 80px;
+	height: 40px;
+	outline:none;
+	border: none;
+    color: #fff;
     font-weight: bold;
-}
+	text-align:center;
+    background-image:linear-gradient(to right, rgb(182, 232, 255) 0%, rgb(240, 169, 184) 51%, rgb(182, 232, 255) 100%);
+    background-size:200%;
+    box-shadow: 3px 3px 8px whitesmoke,
+                -3px -3px 8px #fff;
+    transition:.5s;
 
+}
+.btn-primary:hover{
+    background-position:right;
+	border: #fff;
+	
+}
 th{
     color: red;
     background-color: rgb(240, 169, 184);
 }
 
 .input-group-text{
-    color: black;
+    color:#fff;
     background-color: rgb(240, 169, 184);
     font-weight: bold;
 }
@@ -53,6 +71,20 @@ p{
 	color: #999;
 }
 
+.distance-s{
+	padding-left: 42%;
+	color: rgb(236, 135, 157);
+	font-weight: bold;
+}
+.searching{
+	padding-left: 45%;
+	color: rgb(236, 135, 157);
+	font-weight: bold;
+}
+.style-font{
+	color: rgb(69, 176, 226);
+
+}
 .footext{
 	
 	font-family: 'Poppins', sans-serif;
@@ -167,6 +199,9 @@ a:focus{
 	cursor: pointer;
 	
 }
+.top{
+	margin-top: 50px;
+}
 .sidebar-elem{
 	margin-top:70px;
 }
@@ -261,7 +296,40 @@ a[data-toggle="collapse"]{
 	
 }
 
+.bodySearch{
+    height:700px;
+    width:100%;
+    overflow:hidden;
+    align-items:center;
+    justify-content:space-around;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.form{
+	width: 100%;
+	height: 480px;
+	display: flex;
 
+}
+.search{
+	width: 100%;
+	height: 120px;
+	display:flex;
+	padding-left: 12%;
+}
+
+.search-customer{
+	width: 100%;
+	height: 120px;
+	display:flex;
+	
+}
+
+.search-login-status{
+	width: 100%;
+	height: 120px;
+	display: flex;
+	padding-left: 28%;
+}
 .city{
     position: relative;
 }

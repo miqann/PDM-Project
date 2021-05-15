@@ -12,7 +12,7 @@ class Login extends Component{
                 <div class="bodyRegister">
                     <div class="main">
                         <div class="logo"></div>
-                        <div class="title1">Login Page</div>
+                        <div class="title1">Login</div>
                         <form onSubmit={this.handleSubmit}>
                             <div class="credentials">
                                 <div class="username">

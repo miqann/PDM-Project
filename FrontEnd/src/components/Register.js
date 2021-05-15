@@ -12,7 +12,7 @@ class Register extends Component{
                  <div class="bodyRegister">
                         <div class="main">
                             <div class="logo"></div>
-                            <div class="title">Register Page</div>
+                            <div class="title">Register</div>
                             <form onSubmit={this.handleSubmit}>
                                 <div class="credentials">
                                     <div class="username">

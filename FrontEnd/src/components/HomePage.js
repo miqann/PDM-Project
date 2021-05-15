@@ -27,7 +27,7 @@ class Homepage extends Component {
                                 <li class="nav-item flex-item">
                                     <Link class="nav-link" to="./Register">Signin</Link>
                                 </li>
-                            
+
                             </ul>
 
                             {/*Dark Mode Button*/}

@@ -18,7 +18,7 @@ class Homepage extends Component {
                         <div class="distance-s" >
                             <ul class="navbar-nav" >
                                 <li class="nav-item flex-item" >
-                                    <a class="nav-link active" aria-current="page" href="./">Home</a>
+                                    <Link class="nav-link active" aria-current="page" to="./">Home</Link>
                                 </li>
                                 <li class="nav-item flex-item">
                                     <Link class="nav-link" to="./Login">Log In</Link>

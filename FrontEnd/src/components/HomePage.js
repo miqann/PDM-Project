@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import {BrowserRouter, Route ,Link } from 'react-router-dom';
-import Search from './search1.png';
-import Background from './bg3.png';
+import Background from './image/bg3.png';
 import {UserOutlined, PhoneOutlined, MailOutlined, HomeOutlined, LockOutlined } from '@ant-design/icons';
 
 
@@ -44,8 +43,9 @@ class Homepage extends Component {
                             </div>
                         </div>          
                     </header>
-
+                    
                 </div>
+                
 
                 
                                         {/* <li class="nav-item ">

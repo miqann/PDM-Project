@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import './style.css';
 import {BrowserRouter, Route, Link } from 'react-router-dom'
-import Background from './bg3.png';
+import Background from './image/bg3.png';
 import {UserOutlined, PhoneOutlined, MailOutlined, HomeOutlined, LockOutlined } from '@ant-design/icons';
 
 
 class Register extends Component{
+    constructor(props){
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+    handleSubmit(event) {
+        alert('Successfully Register!');
+        event.preventDefault();
+      }
     render(){
         return(
             <div style={{ backgroundImage: `url(${Background})` }} class="wrapper"> 

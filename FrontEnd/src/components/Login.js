@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import './style.css';
 import {BrowserRouter, Route, Link } from 'react-router-dom'
-import Background from './bg3.png';
+import Background from './image/bg3.png';
 import {UserOutlined, LockOutlined } from '@ant-design/icons';
 
 
 class Login extends Component{
+    constructor(props){
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    
+    handleSubmit(event) {
+        alert('Successfully Login!');
+        event.preventDefault();
+      }
     render(){
         return(
             <div style={{ backgroundImage: `url(${Background})` }} class="wrapper"> 

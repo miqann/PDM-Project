@@ -14,7 +14,7 @@ class SearchCustomer extends Component {
                         <div class="searching" >
                             <ul class="navbar-nav" >
                                 <li class="nav-item flex-item" >
-                                    <a class="nav-link active" aria-current="page" href="./">Home</a>
+                                    <Link class="nav-link active" aria-current="page" to="./">Home</Link>
                                 </li>
                                 <li class=" nav-item dropdown">
                                     <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

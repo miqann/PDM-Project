@@ -27,7 +27,7 @@ class Register extends Component{
                                         <Link class="nav-link active" aria-current="page" to="./">Home</Link>
                                     </li>
                                     <li class="nav-item flex-item">
-                                        <Link class="nav-link" to="./Register">Log In</Link>
+                                        <Link class="nav-link" to="./Login.js">Log In</Link>
                                     </li>
                                 </ul>
                             </div>

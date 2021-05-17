@@ -1,7 +1,9 @@
 var express = require('express');
 var path = require('path');
+const db = require('./config/database');
 var app = express();
-var port = 1080;
+var port = process.env.PORT || 1080;
+var association = require('./public/association/association');
 
 
 var CustomerRoute = require('./routes/CustomerRoute'); //router to author
@@ -17,6 +19,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+
+db.sync()
+  .then(result => app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+  }))
+    .catch(err => console.log(err));
 // app.use('/user/:id', function (req, res, next) {
 //   console.log('Request Type:', req.method);
 //   console.log('Request URL:', req.originalUrl);
@@ -32,9 +40,6 @@ app.use(function(req, res, next) {
 app.use('/customers', CustomerRoute);  // /users is api to call
 
 // start at port 1080
-  app.listen(port, () => {
-      console.log(`Example app listening at http://localhost:${port}`)
-    })
   
 
     

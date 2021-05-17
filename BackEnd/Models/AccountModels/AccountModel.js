@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes, Model } = require('Sequelize');
-const db = require('../config/database');
+const db = require('../../config/database');
 
 //define table Account
 const Account = db.define('Account', {

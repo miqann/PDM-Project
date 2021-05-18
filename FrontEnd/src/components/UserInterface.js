@@ -10,6 +10,12 @@ import Money from './image/money.png';
 
 
 class UserInterface extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            AccountId : this.props.location.state.AccountId,
+        }
+    }
     render(){
         return(
             <div style={{ backgroundImage: `url(${Background})` }} class="wrapper "> 
@@ -22,7 +28,7 @@ class UserInterface extends Component{
                     
                     <div class="sidebar">
                         <ul class="bar-head">
-                            <li class="font">Account</li>
+                            <li class="font">{this.state.AccountId}</li>
                             <img class="account-icon" src={Account}></img>
             
                         </ul>
@@ -34,9 +40,9 @@ class UserInterface extends Component{
                             <li class="nav-item sidebar-elem">Transfer</li>
                             <img class="icon" src={Transfer}></img>
                         </ul>
-                        <ul class="bar-element">
+                        <ul class="bar-element bar-stock">
                             <li class="nav-item sidebar-elem">Stock Exchange</li>
-                            <img class="icon" src={Money}></img>
+                            <img class="icon icon-stock" src={Money}></img>
                         </ul>
                         <ul class="bar-long-element" >
                             <li class="nav-item"></li>

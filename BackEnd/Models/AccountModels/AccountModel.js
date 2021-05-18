@@ -29,6 +29,12 @@ const Account = db.define('Account', {
     Password: {
         type: DataTypes.STRING(40),
     },
+    AccountTypesCode: {
+        type: DataTypes.INTEGER
+    },
+    AccountStatusId: {
+        type: DataTypes.INTEGER,
+    }
 },{
     timestamps: false,
 });

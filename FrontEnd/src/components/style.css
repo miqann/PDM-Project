@@ -117,6 +117,11 @@ p{
 	width:50px;
 	height: 50px;
 	margin-left: 25px;
+
+}
+.icon-stock {
+	padding-left: 13%;
+	width: 100px;
 }
 .btn-size{
 	width: 15px;
@@ -184,7 +189,7 @@ a:focus{
 }
 .font{
 	margin-top: 50px;
-	padding-left: 10%;
+	/* padding-left: 10%; */
 	
 }
 .bar-head{
@@ -232,6 +237,9 @@ a:focus{
 	font-size: 1.5em ;
 	padding-left: 27% ;
 	font-weight: bold;
+}
+.bar-stock {
+	padding-left: 13%;
 }
 
 .bar-element:hover{
@@ -453,9 +461,6 @@ a[data-toggle="collapse"]{
     font-size: 15px;
     text-decoration: underline;
 }
-
-
-
-
-
-
+.hidden {
+	display: none;
+}

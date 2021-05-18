@@ -9,7 +9,9 @@ var db = new Sequelize('banking', 'root', 'pa', {
       max: 5,
       min: 0,
       idle: 10000
-    },
+    },query: {
+        raw:true,
+    }
 });
 
 //test connection

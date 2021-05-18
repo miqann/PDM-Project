@@ -7,16 +7,18 @@ const LoginLog = db.define('LoginLog', {
         autoIncrement:true, 
         isInt: true,
         allowNull: false,
-        len:[10],
+        len:[9],
         primaryKey: true,
     },
     Times: {
         type: DataTypes.DATE,
+        defaultValue:DataTypes.NOW,
+        allowNull: false,
     },
     PlaceLogin: {
         type: DataTypes.STRING(40),
     },
-    Description: {
+    Descriptions: {
         type:DataTypes.STRING(40),
     },
     Login: {
@@ -24,6 +26,12 @@ const LoginLog = db.define('LoginLog', {
     },
     Password: {
         type: DataTypes.STRING(40),
+    },
+    LoginStatusId: {
+        type: DataTypes.INTEGER,
+    },
+    AccountId: {
+        type: DataTypes.INTEGER
     }
     },{
         timestamps: false,

@@ -72,12 +72,12 @@ p{
 }
 
 .distance-s{
-	padding-left: 42%;
+	padding-left: 39%;
 	color: rgb(236, 135, 157);
 	font-weight: bold;
 }
 .searching{
-	padding-left: 45%;
+	padding-left: 42%;
 	color: rgb(236, 135, 157);
 	font-weight: bold;
 }
@@ -182,7 +182,7 @@ a:focus{
 }
 .brand{
 	
-	padding-left: 45%;
+	padding-left: 41.5%;
 	font-weight: bold;
 	font-size: 2em;
 	color: rgb(69, 176, 226);
@@ -294,7 +294,7 @@ a[data-toggle="collapse"]{
 .bodyRegister{
     margin: 3% 7% 0 10% ;
     height:820px;
-    width:85%;
+    width:80%;
     overflow:hidden;
     display:flex;
     align-items:center;

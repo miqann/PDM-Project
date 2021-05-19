@@ -1,2 +1,6 @@
-let accountId = Math.floor(Math.random()*100000 +10001);
-console.log(accountId);
+let account = [{
+    index: 1,
+    cons: 10
+}]
+
+console.log(Object.keys(account[0]));

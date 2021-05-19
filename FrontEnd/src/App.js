@@ -13,19 +13,21 @@ import SearchTransactionLog from './components/SearchTransactionLog';
 function App() {
     return(
         <Router>
-            <UserInterface/>
-        {/* <Switch>
+            
+            {/* <UserInterface/> */}
+        <Switch>
          <Route exact path="/" component={HomePage} />
          <Route path="/login" component={LoginPage} />
          <Route path="/register" component={RegisterPage} />
-         <Route path="/userinterface" component={UserInterface}/>
-         <Route path="/transfer" component={Transfer}/>
+         {/* <Route path="/userinterface" component={UserInterface}/> */}
+         
+         {/* <Route path="/transfer" component={Transfer}/> */}
        
-         <Route path="/searchaccount" component={SearchAccount} />
+         {/* <Route path="/searchaccount" component={SearchAccount} />
          <Route path="/searchcustomer" component={SearchCustomer} />
          <Route path="/searchloginlog" component={SearchLoginlog} />
-         <Route path="/searchtransactionlog" component={SearchTransactionLog} />
-       </Switch> */}
+         <Route path="/searchtransactionlog" component={SearchTransactionLog} /> */}
+       </Switch>
        </Router>
     );
 }

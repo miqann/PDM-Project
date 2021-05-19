@@ -1,5 +1,2 @@
-const today = new Date();
-let date = `${today.getFullYear()}${today.getMonth() + 1}${today.getDate()}`;
-let time = today.getMonth() < 10 ? `0${today.getMonth()+1}` : `${today.getMonth()}`;
-let current = `${date}${time}`;
-console.log(time);
+let accountId = Math.floor(Math.random()*100000 +10001);
+console.log(accountId);

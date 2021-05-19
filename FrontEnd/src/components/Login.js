@@ -49,7 +49,10 @@ class Login extends Component{
                     console.log(this.state.AccountId); // check for account id
                     alert('Login Successfully!')
                 } else {
-                    this.setState({message: message});
+                    this.setState({
+                        message: message,
+                        userName: '',
+                        password: ''});
                 }
             })
 
@@ -95,7 +98,7 @@ class Login extends Component{
                         <div class="main">
                             <div class="logo"></div>
                             <h4 class="title1 ">Login</h4>
-                                        <div class = {this.state.message != '' && this.state.message != 'true' ? 'text-center alert alert-danger': 'hidden' }>{this.state.message}</div>
+                            <div class = {this.state.message != '' && this.state.message != 'true' ? 'text-center alert alert-danger': 'hidden' }>{this.state.message}</div>
                             <form onSubmit={this.handleSubmit}>
                                 <div class="credentials">
                                     <div class="username">

@@ -13,6 +13,8 @@ const TransactionLog = db.define('TransactionLog', {
     },
     TransactionDate: {
         type: DataTypes.DATE,
+        defaultValue:DataTypes.NOW,
+        allowNull:false,
     },
     TransactionAmount: {
         type: DataTypes.INTEGER,

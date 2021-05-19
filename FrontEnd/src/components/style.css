@@ -292,8 +292,8 @@ a[data-toggle="collapse"]{
     
 }
 .bodyRegister{
-    margin: 7% 7% 0 10% ;
-    height:720px;
+    margin: 3% 7% 0 10% ;
+    height:820px;
     width:85%;
     overflow:hidden;
     display:flex;
@@ -350,9 +350,9 @@ a[data-toggle="collapse"]{
 .main{
     width: 400px;
     height:730px;
-    padding:10px 25px 35px 35px;
+    padding:2px 25px 35px 35px;
     margin-left: -100px;
-    margin-top: 20px;
+    margin-top: 2px;
     border-radius:20px;
     font-family:sans-serif;
     font-weight:700;
@@ -385,6 +385,7 @@ a[data-toggle="collapse"]{
     color:rgb(240, 169, 184);
     padding:20px 10px 20px 5px;
     letter-spacing: 1px;
+	width: 95%;
 }
 .username{
     margin-bottom:20px;

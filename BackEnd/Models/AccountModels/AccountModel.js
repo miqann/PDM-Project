@@ -11,11 +11,18 @@ const Account = db.define('Account', {
         allowNull:false,
         primaryKey: true,
     },
+    CustomerId: {
+        type: DataTypes.INTEGER,
+        isInt: true,
+        allowNull:true,
+    },
     AccountName: {
         type: DataTypes.STRING (40),
     },
     DateOpened: {
         type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue:DataTypes.NOW,
         isDate: true,
     },
     CurrentBalance: {

@@ -13,8 +13,7 @@ const Customer = db.define('Customer',{
     },
     CustomerName: { type: DataTypes.STRING(40) },
     CustomerPhone: { 
-        type: DataTypes.INTEGER,
-        len: [10],
+        type: DataTypes.STRING(12),
     },
     CustomerEmail: {
         type: DataTypes.STRING(40),

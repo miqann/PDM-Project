@@ -10,6 +10,7 @@ const association = require('./Models/association');
 
 var CustomerRoute = require('./routes/CustomerRoute'); //router to author
 var LoginRoute = require('./routes/loginRoute');
+var RegisterRoute = require('./routes/registerRoute');
 
 
 app.use(cors());
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 
 app.use('/customers', CustomerRoute);  // /users is api to call
 app.use('/login', LoginRoute);
+app.use('/register', RegisterRoute)
 
 db.sync()
   .then(result => app.listen(port, () => {

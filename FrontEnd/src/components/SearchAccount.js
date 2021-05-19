@@ -17,9 +17,9 @@ class SearchCustomer extends Component {
                                     <a class="nav-link active" aria-current="page" href="./">Home</a>
                                 </li>
                                 <li class=" nav-item dropdown">
-                                    <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Search
-                                    </Link>
+                                    </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <Link class="dropdown-item" to="/searchcustomer">Search Customer</Link>
                                             <div class="dropdown-divider"></div>
@@ -30,6 +30,8 @@ class SearchCustomer extends Component {
                                             <Link class="dropdown-item" to="/searchtransactionlog">Search TransactionLog</Link>     
                                         </div>
                                </li>        
+                               
+                               
                             </ul>
                         </div>          
                     </header> 

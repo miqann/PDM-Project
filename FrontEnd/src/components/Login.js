@@ -29,6 +29,7 @@ class Login extends Component{
         this.setState({password: event.target.value});
     }
 
+    //set accountId from response
     handleChangeAccount(account) {
         this.setState({AccountId: account});
     }

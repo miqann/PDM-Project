@@ -13,7 +13,7 @@ class UserInterface extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            AccountId : this.props.location.state.AccountId,
+            AccountId : this.props.location.state.AccountId,//get data from login
         }
     }
     render(){

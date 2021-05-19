@@ -1,30 +1,42 @@
-var express = require('express');
-var path = require('path');
-var app = express();
-var port = 1080;
+const express = require('express');
+const path = require('path');
+const db = require('./config/database');
+const app = express();
+const port = process.env.PORT || 1080;
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const association = require('./Models/association');
 
 
-var usersRouter = require('./routes/user');
+var CustomerRoute = require('./routes/CustomerRoute'); //router to author
+var LoginRoute = require('./routes/loginRoute');
+var RegisterRoute = require('./routes/registerRoute');
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/user/:id', function (req, res, next) {
-  console.log('Request Type:', req.method);
-  console.log('Request URL:', req.originalUrl);
-  next()
-},function (req, res, next) {
-  console.log('Request Type:', req.method)
-  next()
-})
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));   
 
-app.get('/user/:id', function (req, res, next) {
-  res.send('USER')
-})
-// app.use('/users', usersRouter);
+//access cross origin (cors)
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'OPTIONS, GET, POST, PUT, PATCH, DELETE'
+  );
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Content-Type, Authorization'
+  );
+  next();
+});
 
-  app.listen(port, () => {
-      console.log(`Example app listening at http://localhost:${port}`)
-    })
-  
+app.use('/customers', CustomerRoute);  // /users is api to call
+app.use('/login', LoginRoute);
+app.use('/register', RegisterRoute)
+
+db.sync()
+  .then(result => app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+  }))
+    .catch(err => console.log(err));

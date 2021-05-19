@@ -30,8 +30,8 @@ class HomePage extends Component {
                         </div>          
                     </header>                
                 </div>
-   
-            </div>
+            </div>      
+    
     );
     }
 }

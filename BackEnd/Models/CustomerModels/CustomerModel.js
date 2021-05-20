@@ -19,7 +19,7 @@ const Customer = db.define('Customer',{
         type: DataTypes.STRING(40),
         isEmail: true,
     },
-    City: {type: DataTypes.STRING(40)},
+    city: {type: DataTypes.STRING(40)},
 }, {
     timestamps: false,
 });

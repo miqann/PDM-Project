@@ -3,7 +3,7 @@ const customerControl = require('./CustomerControl');
 
 exports.registerNew = (req,res,next) => {
     let {userName, password, phoneNumber, fullName,email, city} = req.body;
-    
+    console.log(city);
     let accountId = Number(`8${Math.floor(Math.random() *1000000) +1000001}`);
     let customerId= Math.floor(Math.random()*100000 +10001);
     customerControl.findCustomer(fullName, phoneNumber)

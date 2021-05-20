@@ -1,8 +1,8 @@
-
+const {Op} = require('sequelize');
 const customerModel = require('../Models/CustomerModels/CustomerModel');
 //select author from database
-exports.getCustomer = (req, res, next) => {
-        customerModel.findAll()
+exports.getCustomer = async (req, res, next) => {
+        await customerModel.findAll()
             .then(result => {
                 res.json(result);
             })
@@ -33,4 +33,39 @@ exports.createCustomer = async (customerId, fullName, phoneNumber, email, city) 
     } catch (error) {
         console.log(error);
     }
-}
+};
+
+exports.searchCustomer = (req, res,next) => {
+        let {fullName, phoneNumber, email, city} = req.query;// parameter from get in query
+        console.log(email);
+        console.log(req.query);
+        console.log(req.url);
+        if(fullName == '' && phoneNumber == '') {
+            customerModel.findAll()
+                .then(result => {
+                    res.json(result)
+                })
+        }else {
+
+            if(phoneNumber == '') {
+                customerModel.findAll({
+                    where: {
+                        CustomerName: fullName,
+                    }
+                })
+                .then(result => {
+                    res.json(result)
+                })
+            } else {
+                customerModel.findAll({
+                    where: {
+                        CustomerName: fullName,
+                        CustomerPhone: phoneNumber,
+                    }
+                })
+                .then(result => {
+                    res.json(result)
+                })
+            }
+        }
+};

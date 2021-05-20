@@ -1,6 +1,8 @@
-let account = [{
-    index: 1,
-    cons: 10
-}]
+var array = [0, 1, null, 2, "", 3, undefined];
 
-console.log(Object.keys(account[0]));
+// var filtered = array.filter(function (el) {
+//   return el != null;
+// });
+
+let {mot, hai , ba} = array.filter(Boolean);
+console.log(mot);

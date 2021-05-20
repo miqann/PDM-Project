@@ -17,6 +17,7 @@ class Register extends Component{
         this.handleChangeEmail= this.handleChangeEmail.bind(this);// bind this function
         this.handleChangeCity= this.handleChangeCity.bind(this);// bind this function
         this.state = {
+            fullName:'',
             userName: '',
             password: '',
             phoneNumber:'',

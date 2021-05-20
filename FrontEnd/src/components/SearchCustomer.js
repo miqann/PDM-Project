@@ -2,9 +2,63 @@ import React, { Component } from 'react';
 import './style.css';
 import { Link } from 'react-router-dom';
 import Background from './image/bg2.png';
+import axios from 'axios';
 
 
 class SearchCustomer extends Component {
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this); // bind this function
+        this.handleChangeFullname= this.handleChangeFullname.bind(this);// bind this function
+        this.handleChangePhoneNumber = this.handleChangePhoneNumber.bind(this); //bind this function
+        this.handleChangeEmail= this.handleChangeEmail.bind(this);// bind this function
+        this.handleChangeCity= this.handleChangeCity.bind(this);// bind this function
+        this.state = {
+            customerId:0,
+            fullName: '',
+            phoneNumber:'',
+            email:'',
+            city: '',
+            message:'',
+        };
+    }
+
+    //set fullname from response
+    handleChangeFullname(event) {
+        this.setState({fullName: event.target.value});
+        
+    }
+    //set data of phonenumber when typing
+    handleChangePhoneNumber(event) {
+        this.setState({phoneNumber: event.target.value}); 
+    }
+
+    //set data of email when typing
+    handleChangeEmail(event) {
+        this.setState({email: event.target.value});
+    }
+
+//set data of city when typing
+    handleChangeCity(event) {
+        this.setState({city: event.target.value});
+    }
+
+    handleSubmit(event) {
+        let {phoneNumber, fullName,email, city} = this.state; // declare variable using es6
+        let path=`http://localhost:1080/customers/search`; // declare url to server
+        event.preventDefault();
+        axios.get(path, {
+            params: {
+                fullName: fullName,
+                phoneNumber: phoneNumber,
+                email: email,
+                city:city,
+            }}) // post data to server
+            .then (res => {
+                console.log(res);
+            })
+      }
+
     render() {
         return (
             // Container 
@@ -40,16 +94,44 @@ class SearchCustomer extends Component {
                         <div class="bodySearch">
                             <h4>Search Customer</h4>
                             <div class="search-customer">
-                                <form>
+                                <form onSubmit={this.handleSubmit}>
                                     <div class="input-group mb-1">
                                         <span class="input-group-text" id="basic-addon">Customer Name</span>
-                                        <input type="text" name="username" class="form-control" aria-label="Username" aria-describedby="basic-addon"></input>
+                                        <input type="text" 
+                                            name="fullName" 
+                                            class="form-control" 
+                                            aria-label="Username" 
+                                            aria-describedby="basic-addon"
+                                            value = {this.state.fullName}
+                                            onChange = {this.handleChangeFullname}
+                                        ></input>
                                         <span class="input-group-text" id="basic-addon">Customer Phone</span>
-                                        <input type="text" name="phone" class="form-control" aria-label="Phone" aria-describedby="basic-addon"></input>
+                                        <input type="text" 
+                                            name="phoneNumber" 
+                                            class="form-control" 
+                                            aria-label="Phone" 
+                                            aria-describedby="basic-addon"
+                                            value = {this.state.userName}
+                                            onChange = {this.handleChangePhoneNumber}
+                                        ></input>
                                         <span class="input-group-text" id="basic-addon">Customer Email</span>
-                                        <input type="text" name="email" class="form-control" aria-label="Email" aria-describedby="basic-addon"></input>
+                                        <input type="text" 
+                                            name="email" 
+                                            class="form-control" 
+                                            aria-label="Email" 
+                                            aria-describedby="basic-addon"
+                                            value = {this.state.userName}
+                                            onChange = {this.handleChangeEmail}
+                                        ></input>
                                         <span class="input-group-text" id="basic-addon">Customer City</span>
-                                        <input type="text" name="city" class="form-control" aria-label="City" aria-describedby="basic-addon"></input>
+                                        <input type="text" 
+                                            name="city" 
+                                            class="form-control" 
+                                            aria-label="City" 
+                                            aria-describedby="basic-addon"
+                                            value = {this.state.userName}
+                                            onChange = {this.handleChangeCity}
+                                        ></input>
                                     </div>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                         <input class="btn btn-primary" type="submit" value="Search"></input>

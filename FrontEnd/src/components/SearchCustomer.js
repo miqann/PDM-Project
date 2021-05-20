@@ -10,56 +10,70 @@ class SearchCustomer extends Component {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this); // bind this function
         this.handleChangeFullname= this.handleChangeFullname.bind(this);// bind this function
+        this.handleChangeId= this.handleChangeId.bind(this);// bind this function
         this.handleChangePhoneNumber = this.handleChangePhoneNumber.bind(this); //bind this function
         this.handleChangeEmail= this.handleChangeEmail.bind(this);// bind this function
         this.handleChangeCity= this.handleChangeCity.bind(this);// bind this function
         this.state = {
-            customerId:0,
+            customerId:'',
             fullName: '',
             phoneNumber:'',
             email:'',
             city: '',
-            message:'',
+            result:'',
         };
     }
 
+    handleChangeId = (event) => {
+        this.setState({customerId: event.target.value});
+    }
     //set fullname from response
-    handleChangeFullname(event) {
+    handleChangeFullname = (event) => {
         this.setState({fullName: event.target.value});
         
-    }
+    } 
     //set data of phonenumber when typing
-    handleChangePhoneNumber(event) {
+    handleChangePhoneNumber = (event) => {
         this.setState({phoneNumber: event.target.value}); 
     }
 
     //set data of email when typing
-    handleChangeEmail(event) {
+    handleChangeEmail = (event) =>  {
         this.setState({email: event.target.value});
     }
 
 //set data of city when typing
-    handleChangeCity(event) {
+    handleChangeCity = (event) =>  {
         this.setState({city: event.target.value});
     }
 
-    handleSubmit(event) {
-        let {phoneNumber, fullName,email, city} = this.state; // declare variable using es6
+    handleSubmit =(event) => {
+        let {customerId, phoneNumber, fullName,email, city} = this.state; // declare variable using es6
         let path=`http://localhost:1080/customers/search`; // declare url to server
         event.preventDefault();
         axios.get(path, {
             params: {
+                customerId: customerId,
                 fullName: fullName,
                 phoneNumber: phoneNumber,
                 email: email,
                 city:city,
-            }}) // post data to server
+            }
+        }) // post data to server
             .then (res => {
-                console.log(res);
+                console.log(res.data);
+                alert ('Get data successfully!')
+                this.setState({result: res.data})
+                console.log(this.state.result);
+            })
+            .catch(err => {
+                console.log(err);
             })
       }
 
     render() {
+        var title = this.state.result.length ==0 ? '': Object.keys(this.state.result[0]).map(item => <th scope = "col"> {item}</th>);
+        var body = this.state.result.length == 0 ? '' :this.state.result.map((item, index) => { return <tr key ={index}> {Object.values(item).map((item, index) => {return <td key={index}>{item}</td>})}</tr>});
         return (
             // Container 
             <div style={{ backgroundImage: `url(${Background})` }} class="wrapper"> 
@@ -96,6 +110,15 @@ class SearchCustomer extends Component {
                             <div class="search-customer">
                                 <form onSubmit={this.handleSubmit}>
                                     <div class="input-group mb-1">
+                                        <span class="input-group-text" id="basic-addon">Customer Id</span>
+                                        <input type="text" 
+                                            name="id" 
+                                            class="form-control" 
+                                            aria-label="id" 
+                                            aria-describedby="basic-addon"
+                                            value = {this.state.customerId !== 0 ? this.state.customerId: ''}
+                                            onChange = {this.handleChangeId}
+                                        ></input>
                                         <span class="input-group-text" id="basic-addon">Customer Name</span>
                                         <input type="text" 
                                             name="fullName" 
@@ -111,7 +134,7 @@ class SearchCustomer extends Component {
                                             class="form-control" 
                                             aria-label="Phone" 
                                             aria-describedby="basic-addon"
-                                            value = {this.state.userName}
+                                            value = {this.state.phoneNumber}
                                             onChange = {this.handleChangePhoneNumber}
                                         ></input>
                                         <span class="input-group-text" id="basic-addon">Customer Email</span>
@@ -120,7 +143,7 @@ class SearchCustomer extends Component {
                                             class="form-control" 
                                             aria-label="Email" 
                                             aria-describedby="basic-addon"
-                                            value = {this.state.userName}
+                                            value = {this.state.email}
                                             onChange = {this.handleChangeEmail}
                                         ></input>
                                         <span class="input-group-text" id="basic-addon">Customer City</span>
@@ -129,7 +152,7 @@ class SearchCustomer extends Component {
                                             class="form-control" 
                                             aria-label="City" 
                                             aria-describedby="basic-addon"
-                                            value = {this.state.userName}
+                                            value = {this.state.city}
                                             onChange = {this.handleChangeCity}
                                         ></input>
                                     </div>
@@ -139,31 +162,14 @@ class SearchCustomer extends Component {
                                 </form>
                             </div>
                             <div class ="form">
-                                <table class="table table-striped align-center">
-                                    <thead>
+                                <table class="table table-striped table-hover col">
+                                    <thead key ="title">
                                         <tr>
-                                            <th scope="col">Customer ID</th>
-                                            <th scope="col">Customer Name</th>
-                                            <th scope="col">Customer Phone</th>
-                                            <th scope="col">Customer Email</th> 
-                                            <th scope="col">City</th> 
+                                            {title}
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td scope="row">1</td>
-                                            <td>Mark</td>
-                                            <td>0909999999</td>
-                                            <td>test@gmail.com</td>
-                                            <td>Nha Trang</td>
-                                        </tr>
-                                        <tr>
-                                            <td scope="row">2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                            <td>@mdo</td>
-                                        </tr>
+                                    <tbody key= "body">
+                                        {body}
                                     </tbody>
                                 </table>
                             </div>

@@ -29,23 +29,23 @@ class Register extends Component{
     }
     
     //set data of username when typing
-    handleChangeUsername(event) {
+    handleChangeUsername = (event) => {
         this.setState({userName: event.target.value}); 
         
     }
 
     //set data of password when typing
-    handleChangePassword(event) {
+    handleChangePassword = (event) => {
         this.setState({password: event.target.value});
     }
 
     //set fullname from response
-    handleChangeFullname(event) {
+    handleChangeFullname = (event) => {
         this.setState({fullName: event.target.value});
         
     }
     //set data of phonenumber when typing
-    handleChangePhoneNumber(event) {
+    handleChangePhoneNumber = (event) => {
         this.setState({phoneNumber: event.target.value}); 
         if (this.state.phoneNumber.length > 9){
             this.setState({message: 'error phone'});
@@ -55,30 +55,30 @@ class Register extends Component{
     }
 
     //set data of email when typing
-    handleChangeEmail(event) {
+    handleChangeEmail = (event)  => {
         this.setState({email: event.target.value});
     }
 
 //set data of city when typing
-    handleChangeCity(event) {
+    handleChangeCity = (event) => {
         this.setState({city: event.target.value});
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         let path='http://localhost:1080/register/'; // declare url to server
         let {userName, password, phoneNumber, fullName,email, city} = this.state; // declare variable using es6
         axios.post(path,{userName, password, phoneNumber, fullName,email, city}) // post data to server
         .then(res => {
             let {message, accountId} = res.data;
             console.log(res.data);
-            if (accountId != undefined) {
+            if (accountId !== undefined) {
                 alert(`${message}! Your account number: ${accountId}`)
             }else {
                 this.setState({message: message});
             }
         })
         .then(() => {
-            if(this.state.message == '') {
+            if(this.state.message === '') {
                 this.props.history.push({
                     pathname: '/login',
                     
@@ -112,7 +112,7 @@ class Register extends Component{
                         <div class="main">
                             <div class="logo"></div>
                             <div class="title">Register</div>
-                            <div class = {this.state.message != '' && this.state.message != 'true' ? 'text-center alert alert-danger': 'hidden' }>{this.state.message}</div>
+                            <div class = {this.state.message !== '' && this.state.message !== 'true' ? 'text-center alert alert-danger': 'hidden' }>{this.state.message}</div>
                             <form onSubmit={this.handleSubmit}>
                             <div class="credentials">
                                 <div class="username">

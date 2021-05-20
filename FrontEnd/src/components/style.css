@@ -465,3 +465,10 @@ a[data-toggle="collapse"]{
 .hidden {
 	display: none;
 }
+
+#bodyTable {
+	background-color: red;
+	/* display:inline-block; */
+
+	overflow: scroll;
+}

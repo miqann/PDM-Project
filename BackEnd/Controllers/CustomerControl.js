@@ -36,27 +36,39 @@ exports.createCustomer = async (customerId, fullName, phoneNumber, email, city) 
 };
 
 exports.searchCustomer = (req, res,next) => {
-        let {fullName, phoneNumber, email, city} = req.query;// parameter from get in query
+        let {customerId, fullName, phoneNumber, email, city} = req.query;// parameter from get in query
         console.log(email);
         console.log(req.query);
         console.log(req.url);
-        if(fullName == '' && phoneNumber == '') {
-            customerModel.findAll()
-                .then(result => {
-                    res.json(result)
-                })
-        }else {
 
-            if(phoneNumber == '') {
-                customerModel.findAll({
-                    where: {
-                        CustomerName: fullName,
+        if(customerId !== '') {
+            customerModel.findAll({
+                where: {
+                    CustomerId:customerId,
                     }
                 })
                 .then(result => {
                     res.json(result)
                 })
-            } else {
+        }
+
+        if(fullName == '' && phoneNumber == '' && customerId == '') {
+            customerModel.findAll()
+                .then(result => {
+                    res.json(result)
+                })
+        }
+        if(phoneNumber == '' && fullName !== '') {
+            customerModel.findAll({
+                where: {
+                    CustomerName: fullName,
+                    }
+                })
+                .then(result => {
+                    res.json(result)
+                })
+        }
+        if(phoneNumber !== '' && fullName !== '') {
                 customerModel.findAll({
                     where: {
                         CustomerName: fullName,
@@ -67,5 +79,4 @@ exports.searchCustomer = (req, res,next) => {
                     res.json(result)
                 })
             }
-        }
-};
+        };

@@ -20,21 +20,21 @@ class Login extends Component{
         };
     }
     //set data of username when typing
-    handleChangeUsername(event) {
+    handleChangeUsername = (event) => {
         this.setState({userName: event.target.value}); 
     }
 
     //set data of password when typing
-    handleChangePassword(event) {
+    handleChangePassword = (event) => {
         this.setState({password: event.target.value});
     }
 
     //set accountId from response
-    handleChangeAccount(account) {
+    handleChangeAccount = (account) => {
         this.setState({AccountId: account});
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         let path='http://localhost:1080/login/'; // declare url to server
         let {userName, password} = this.state; // declare variable using es6
         console.log(`${userName}: ${password}`);// log data
@@ -43,7 +43,7 @@ class Login extends Component{
                 console.log(res.data);
                 let {message,accountId} = res.data; //declare variable by data response from server
                 console.log(`account: ${accountId}`);
-                if (message == 'true'){
+                if (message === 'true'){
                     // this.handleChangeAccount(accountId);
                     this.setState({AccountId: accountId}); //set accountid
                     console.log(this.state.AccountId); // check for account id
@@ -58,7 +58,7 @@ class Login extends Component{
 
              //redirect to next page and passing state if login true
             .then(() => {
-                if(this.state.AccountId != 0) {
+                if(this.state.AccountId !== 0) {
                     this.props.history.push({
                         pathname: '/userinterface',
                         state:
@@ -98,7 +98,7 @@ class Login extends Component{
                         <div class="main">
                             <div class="logo"></div>
                             <h4 class="title1 ">Login</h4>
-                            <div class = {this.state.message != '' && this.state.message != 'true' ? 'text-center alert alert-danger': 'hidden' }>{this.state.message}</div>
+                            <div class = {this.state.message !== '' && this.state.message !== 'true' ? 'text-center alert alert-danger': 'hidden' }>{this.state.message}</div>
                             <form onSubmit={this.handleSubmit}>
                                 <div class="credentials">
                                     <div class="username">

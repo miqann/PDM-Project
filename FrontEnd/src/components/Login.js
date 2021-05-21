@@ -15,6 +15,7 @@ class Login extends Component{
         this.state = {
             userName: '',
             password: '',
+            currentBalance:0,
             message:'',
             AccountId:0,
         };
@@ -41,12 +42,13 @@ class Login extends Component{
         axios.post(path,{userName,password}) // post data to server
             .then((res) => {
                 console.log(res.data);
-                let {message,accountId} = res.data; //declare variable by data response from server
+                let {message,accountId, currentBalance} = res.data; //declare variable by data response from server
                 console.log(`account: ${accountId}`);
                 if (message === 'true'){
                     {/*this.handleChangeAccount(accountId);*/}
-                    this.setState({AccountId: accountId}); //set accountid
+                    this.setState({AccountId: accountId, currentBalance: currentBalance}); //set accountid
                     console.log(this.state.AccountId); // check for account id
+                    console.log(this.state.currentBalance);
                     alert('Login Successfully!')
                 } else {
                     this.setState({
@@ -63,6 +65,7 @@ class Login extends Component{
                         pathname: '/userinterface',
                         state:
                         {
+                            currentBalance: this.state.currentBalance,
                             AccountId: this.state.AccountId,
                         }
                     })
@@ -117,7 +120,7 @@ class Login extends Component{
                                 <button type="submit" class="submit">Login</button>
                             </form>
                             <div class="link">
-                                <Link class="distance" to="./">Back</Link>
+                                <Link class="distance pl-3" to="./">Back</Link>
                                 <Link to="#">Forget your password? Contact us.</Link> 
                             </div>
                         </div>

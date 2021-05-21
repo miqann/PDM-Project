@@ -12,15 +12,29 @@ import Money from './image/money.png';
 class UserInterface extends Component{
     constructor(props) {
         super(props);
+        this.handleWallet = this.handleWallet.bind(this);
+        this.handleTransfer = this.handleTransfer.bind(this);
         this.state = {
             //get data from login
-            // AccountId : this.props.location.state.AccountId,
+            AccountId : this.props.location.state.AccountId,
+            currentBalance: this.props.location.state.currentBalance,
+            Wallet: 'wallet-cover',
+            Transfer: 'transfer-cover hidden'
+
             
         }
         
     }
 
+    handleWallet(event) {
+        this.setState({Wallet: 'wallet-cover',
+        Transfer: 'transfer-cover hidden'});
+    }
     
+    handleTransfer(event) {
+        this.setState({Wallet: 'wallet-cover hidden',
+        Transfer: 'transfer-cover'});
+    }
 
     render(){
         return(
@@ -36,16 +50,16 @@ class UserInterface extends Component{
                         <div class="sidebar">
                             <div>
                                 <ul class="bar-head">
-                                    {/* <li class="font">{this.state.AccountId}</li> */}
+                                    <li class="font">{this.state.AccountId}</li>
                                     <img class="account-icon" src={Account}></img>
 
                                 </ul>
-                                <ul class="bar-element">
+                                <ul class="bar-element" onClick ={this.handleWallet}>
                                     <li class="nav-item sidebar-elem ">My Wallet</li>
                                     <img class="icon" src={Wallet}></img>
                                 </ul>
 
-                                <ul class="bar-element">
+                                <ul class="bar-element" onClick={this.handleTransfer}>
                                     <li class="nav-item sidebar-elem">Transfer</li>
                                     <img class="icon" src={Transfer}></img>
 
@@ -67,9 +81,9 @@ class UserInterface extends Component{
 
                            
                             < div class ="container-small">
-                                <div class="wallet-cover">
+                                <div class={this.state.Wallet}>
                                     <div class="text-big">Available Balances:
-                                        <span class="distance">123.456 VND</span>
+                                        <span class="distance">{this.state.currentBalance} VND</span>
                                     </div>
                                     <div class="text-big">Credit limit:
                                         <span class="distance">10.000.000 VND</span>
@@ -78,7 +92,7 @@ class UserInterface extends Component{
                                         <span class="distance">Bronze</span>
                                     </div>
                                 </div>
-                                <div class="transfer-cover">
+                                <div class={this.state.Transfer}>
                                     <ul class ="text-big">Transferer Information
                                         <li class="text-small">Account ID:</li>
                                         <input class="distance" type="text"></input>

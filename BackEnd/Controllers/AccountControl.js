@@ -6,10 +6,10 @@ const e = require('express');
 
 exports.getAccount=  (username) => {
     return Account.findAll({
-        attributes: ['login', 'password', 'AccountId'],
+        attributes: ['login', 'password', 'AccountId','CurrentBalance'],
         where: {
             Login: username,
-        }
+        }, 
         });
 };
 

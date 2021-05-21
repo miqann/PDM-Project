@@ -144,11 +144,25 @@ class SearchCustomer extends Component {
                             <table class="table align-center table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        {title}
+                                        <th scope="col">Account ID</th>
+                                        <th scope="col">Account Name</th>
+                                        <th scope="col">Customer ID</th>
+                                        <th scope="col">Customer Name</th>
+                                        <th scope="col">Date Opened</th>
+                                        <th scope="col">Account Status</th>
+                                        <th scope="col">Account Type</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        {body}
+                                    <tr>
+                                        <td scope="row"></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                                 </tbody>
                             </table>
                             </div>

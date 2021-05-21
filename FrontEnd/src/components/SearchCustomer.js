@@ -163,11 +163,21 @@ class SearchCustomer extends Component {
                                 <table class="table table-striped table-hover col">
                                     <thead key ="title">
                                         <tr>
-                                            {title}
+                                            <th scope="col">Customer ID</th>
+                                            <th scope="col">Customer Name</th>
+                                            <th scope="col">Customer Phone</th>
+                                            <th scope="col">Customer Email</th> 
+                                            <th scope="col">City</th> 
                                         </tr>
                                     </thead>
                                     <tbody key= "body">
-                                        {body}
+                                        <tr>
+                                            <td scope="row"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

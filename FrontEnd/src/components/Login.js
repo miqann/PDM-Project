@@ -44,7 +44,7 @@ class Login extends Component{
                 let {message,accountId} = res.data; //declare variable by data response from server
                 console.log(`account: ${accountId}`);
                 if (message === 'true'){
-                    // this.handleChangeAccount(accountId);
+                    {/*this.handleChangeAccount(accountId);*/}
                     this.setState({AccountId: accountId}); //set accountid
                     console.log(this.state.AccountId); // check for account id
                     alert('Login Successfully!')

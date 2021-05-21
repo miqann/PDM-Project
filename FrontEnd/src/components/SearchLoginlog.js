@@ -91,8 +91,6 @@ class SearchLoginlog extends Component {
                                             <Link class="dropdown-item" to="/searchaccount">Search Account</Link>
                                             <div class="dropdown-divider"></div>
                                             <Link class="dropdown-item" to="/searchloginlog">Login Status</Link>
-                                            <div class="dropdown-divider"></div>
-                                            <Link class="dropdown-item" to="/searchtransactionlog">Transaction Status</Link>     
                                         </div>
                                </li>        
                             </ul>
@@ -122,6 +120,15 @@ class SearchLoginlog extends Component {
                                             aria-describedby="basic-addon"
                                             value = {this.state.customerId !== 0 ? this.state.customerId : ''}
                                             onChange = {this.handleChangeCustomerId}></input>
+                                        <span class="input-group-text" id="basic-addon">Customer Name</span>
+                                        <input type="text" 
+                                            name="fullName" 
+                                            class="form-control" 
+                                            aria-label="Username" 
+                                            aria-describedby="basic-addon"
+                                            value = {this.state.fullName}
+                                            onChange = {this.handleChangeFullname}
+                                        ></input>
                                     </div>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                         <input class="btn btn-primary" type="submit" value="Search"></input>

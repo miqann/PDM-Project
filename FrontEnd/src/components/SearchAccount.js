@@ -87,9 +87,7 @@ class SearchCustomer extends Component {
                                             <div class="dropdown-divider"></div>
                                             <Link class="dropdown-item" to="/searchaccount">Search Account</Link>
                                             <div class="dropdown-divider"></div>
-                                            <Link class="dropdown-item" to="/searchloginlog">Search LoginLog</Link>
-                                            <div class="dropdown-divider"></div>
-                                            <Link class="dropdown-item" to="/searchtransactionlog">Search TransactionLog</Link>     
+                                            <Link class="dropdown-item" to="/searchloginlog">Search LoginLog</Link>   
                                         </div>
                                </li>        
                                

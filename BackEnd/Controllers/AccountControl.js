@@ -34,7 +34,7 @@ exports.createAccount = (accountId, customerId, fullName, userName, password) =>
 exports.searchAccount = (req,res,next) => {
     let {AccountId, customerId, fullName, AccountStatus} = req.query;
     console.log(req.query);
-    if(AccountStatus !== '' && AccountId === '0' && AccountStatus !== '') {
+    if(customerId === '' && AccountId === '' && AccountStatus !== '') {
         Account.findAll({
             attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
             include:[
@@ -59,7 +59,7 @@ exports.searchAccount = (req,res,next) => {
             console.log(JSON.stringify(result, null, 2));
         });
     }
-    if(AccountId !== '0'){
+    if(AccountId !== '' && customerId === '' && fullName === '' ){
         Account.findAll({
             attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
             where: {
@@ -86,7 +86,7 @@ exports.searchAccount = (req,res,next) => {
     
         })
     }
-    if(customerId === '0' && AccountId === '0' && fullName === ''){
+    if(customerId === '' && AccountId === '' && fullName === ''&& AccountStatus === ''){
         Account.findAll({
             attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
             include:[
@@ -110,7 +110,7 @@ exports.searchAccount = (req,res,next) => {
     
         })
     }
-    if(customerId !== '0' && AccountId === '0' && fullName !== ''){
+    if(customerId !== '' && AccountId === '' && fullName !== ''){
         Account.findAll({
             attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
             include:[
@@ -127,6 +127,68 @@ exports.searchAccount = (req,res,next) => {
                 },{
                     attributes:['AccountStatusDescription'],
                     association:'accountStatus',
+                }
+            ],
+            raw:true,
+    
+        })
+        .then(result => {
+            res.json(result);
+            console.log(JSON.stringify(result, null, 2));
+    
+        })
+    }
+    if(customerId !== '' && AccountId === '' && fullName !== '' && AccountStatus !==''){
+        Account.findAll({
+            attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
+            include:[
+                {
+                attributes: ['CustomerName'],
+                association:'customer',
+                where: {
+                    customerId: customerId,
+                    customerName: fullName,
+                }
+                },{
+                    attributes:['AccountTypesDescription'],
+                    association: 'accountType'
+                },{
+                    attributes:['AccountStatusDescription'],
+                    association:'accountStatus',
+                    where: {
+                        AccountStatusDescription: AccountStatus
+                    }
+                }
+            ],
+            raw:true,
+    
+        })
+        .then(result => {
+            res.json(result);
+            console.log(JSON.stringify(result, null, 2));
+    
+        })
+    }
+    if(customerId !== '' && AccountId !== '' && fullName !== '' && AccountStatus !==''){
+        Account.findAll({
+            attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
+            include:[
+                {
+                attributes: ['CustomerName'],
+                association:'customer',
+                where: {
+                    customerId: customerId,
+                    customerName: fullName,
+                }
+                },{
+                    attributes:['AccountTypesDescription'],
+                    association: 'accountType'
+                },{
+                    attributes:['AccountStatusDescription'],
+                    association:'accountStatus',
+                    where: {
+                        AccountStatusDescription: AccountStatus
+                    }
                 }
             ],
             raw:true,

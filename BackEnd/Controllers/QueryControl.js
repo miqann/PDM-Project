@@ -5,17 +5,19 @@ exports.usingQuery = (req, res, next) => {
     console.log(req.query);
     console.log(query);
     if(query !== '') {
-
             db.query(query, {raw: true})
             .then (result => {
-                console.log(result);
+                console.log('result: ');
+                res.json(result[0]);
+
+                // res.json(result);
             })
             .catch (err => {
                 console.log(err);
                 console.log('this is err');
-                res.status(404);
+                res.status(200);
             })
         } else {
-            res.status(404);
+            res.status(200);
     }
 };

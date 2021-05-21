@@ -50,7 +50,8 @@ exports.searchCustomer = (req, res,next) => {
                         {
                         attributes: ['CustomerTypesDescription'],
                         association:'customerType'
-                        }]
+                        }],
+                    raw:true,
                 })
                 .then(result => {
                     res.json(result)

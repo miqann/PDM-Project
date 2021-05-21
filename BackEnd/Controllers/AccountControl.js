@@ -34,7 +34,7 @@ exports.createAccount = (accountId, customerId, fullName, userName, password) =>
 exports.searchAccount = (req,res,next) => {
     let {AccountId, customerId, fullName, AccountStatus} = req.query;
     console.log(req.query);
-    if(AccountStatus !== '' && AccountId === '0') {
+    if(AccountStatus !== '' && AccountId === '0' && AccountStatus !== '') {
         Account.findAll({
             attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
             include:[

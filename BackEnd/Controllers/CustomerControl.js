@@ -45,7 +45,12 @@ exports.searchCustomer = (req, res,next) => {
             customerModel.findAll({
                 where: {
                     CustomerId:customerId,
-                    }
+                    },
+                    include:[
+                        {
+                        attributes: ['CustomerTypesDescription'],
+                        association:'customerType'
+                        }]
                 })
                 .then(result => {
                     res.json(result)
@@ -53,7 +58,14 @@ exports.searchCustomer = (req, res,next) => {
         }
 
         if(fullName == '' && phoneNumber == '' && customerId == '') {
-            customerModel.findAll()
+            customerModel.findAll({
+                include:[
+                    {
+                    attributes: ['CustomerTypesDescription'],
+                    association:'customerType'
+                }],
+                raw:true,
+            })
                 .then(result => {
                     res.json(result)
                 })
@@ -62,7 +74,13 @@ exports.searchCustomer = (req, res,next) => {
             customerModel.findAll({
                 where: {
                     CustomerName: fullName,
-                    }
+                    },
+                    include:[
+                        {
+                        attributes: ['CustomerTypesDescription'],
+                        association:'customerType'
+                        }],
+                    raw:true,
                 })
                 .then(result => {
                     res.json(result)
@@ -73,7 +91,14 @@ exports.searchCustomer = (req, res,next) => {
                     where: {
                         CustomerName: fullName,
                         CustomerPhone: phoneNumber,
-                    }
+                    },
+                    include:[
+                        {
+                        attributes: ['CustomerTypesDescription'],
+                        association:'customerType'
+                    }],
+                    raw:true,
+
                 })
                 .then(result => {
                     res.json(result)

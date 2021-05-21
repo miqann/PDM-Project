@@ -14,6 +14,7 @@ var LoginRoute = require('./routes/loginRoute');
 var RegisterRoute = require('./routes/registerRoute');
 var AccountRoute = require('./routes/AccountRoute');
 var LoginLog = require('./routes/loginLogRoute');
+var Query = require('./routes/QueryRoute');
 
 
 app.use(cors());
@@ -39,6 +40,7 @@ app.use('/login', LoginRoute);
 app.use('/register', RegisterRoute);
 app.use('/account', AccountRoute);
 app.use('/loginlog', LoginLog);
+app.use('/query', Query);
 
 db.sync()
   .then(result => app.listen(port, () => {

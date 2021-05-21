@@ -9,6 +9,7 @@ import SearchCustomer from './components/SearchCustomer';
 import SearchLoginlog from './components/SearchLoginlog';
 import SearchAccount from './components/SearchAccount';
 import SearchTransactionLog from './components/SearchTransactionLog';
+import Query from './components/Query';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
          <Route path="/searchcustomer" component={SearchCustomer} />
          <Route path="/searchloginlog" component={SearchLoginlog} />
          <Route path="/searchtransactionlog" component={SearchTransactionLog} />
+         <Route path="/query" component={Query} />
        </Switch>
        </Router>
     );

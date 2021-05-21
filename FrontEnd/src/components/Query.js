@@ -6,62 +6,43 @@ import axios from 'axios';
 
 
 
+
 class SearchLoginlog extends Component {
 
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this); // bind this function
-        this.handleChangefullname= this.handleChangefullname.bind(this);// bind this function
-        this.handleChangeAccountId= this.handleChangeAccountId.bind(this);// bind this function
-        this.handleChangeAccountStatus= this.handleChangeAccountStatus.bind(this);// bind this function
-        this.handleChangeCustomerId= this.handleChangeCustomerId.bind(this); //bind this function
+        this.handleChangeQuery= this.handleChangeQuery.bind(this);// bind this function
         this.state = {
-            AccountId: 0,
-            customerId:0,
-            fullName: '',
-            result:'',
+            query: '',
+            result: ''
         };
     }
 
-     //set data of phonenumber when typing
-     handleChangefullname = (event) => {
-        this.setState({fullName: event.target.value}); 
-    }
-
-    //set data of email when typing
-    handleChangeAccountId = (event) =>  {
-        this.setState({AccountId: event.target.value});
-    }
-
-    handleChangeAccountStatus = (event) =>  {
-        this.setState({AccountStatus: event.target.value});
-    }
-
 //set data of city when typing
-    handleChangeCustomerId = (event) =>  {
-        this.setState({customerId: event.target.value});
+    handleChangeQuery = (event) =>  {
+        this.setState({query: event.target.value});
     }
 
     handleSubmit =(event) => {
-        let {customerId, AccountId, fullName, AccountStatus} = this.state; // declare variable using es6
-        let path=`http://localhost:1080/loginlog/search`; // declare url to server
+        let {query} = this.state; // declare variable using es6
+        let path=`http://localhost:1080/query/search`; // declare url to server
         event.preventDefault();
         axios.get(path, {
             params: {
-                AccountId: AccountId,
-                customerId: customerId,
-                fullName: fullName,
-                AccountStatus: AccountStatus,
+                query:query
             }
         }) // post data to server
             .then (res => {
                 console.log(res.data);
+
                 alert ('Get data successfully!')
                 this.setState({result: res.data})
                 console.log(this.state.result);
             })
             .catch(err => {
                 console.log(err);
+                alert(err);
             })
     }
 
@@ -92,7 +73,7 @@ class SearchLoginlog extends Component {
                                             <div class="dropdown-divider"></div>
                                             <Link class="dropdown-item" to="/searchloginlog">Login Status</Link>
                                             <div class="dropdown-divider"></div>
-                                            <Link class="dropdown-item" to="/query">Query</Link> 
+                                            <Link class="dropdown-item" to="/query">Query</Link>
                                         </div>
                                </li>        
                             </ul>
@@ -101,36 +82,19 @@ class SearchLoginlog extends Component {
 
                     <div class="top">
                         <div class="bodySearch">
-                            <h4>LogIn Status</h4>
-                            <div class="search-login-status">
-                                <form onSubmit = {this.handleSubmit}>
+                            <h4>Query</h4>
+                            <div class="search-login-status pl">
+                                <form class='test' onSubmit = {this.handleSubmit}>
                                     <div class="input-group mb-1">
-                                        <span class="input-group-text" id="basic-addon">Account ID</span>
+                                        <span class="input-group-text" id="basic-addon">Input Query</span>
                                         <input 
                                             type="text" 
-                                            name="accountId" 
-                                            class="form-control" 
-                                            aria-label="accountid" 
+                                            name="query" 
+                                            class="form-control " 
+                                            aria-label="query" 
                                             aria-describedby="basic-addon"
-                                            value = {this.state.AccountId !== 0 ? this.state.AccountId : ''}
-                                            onChange = {this.handleChangeAccountId}></input>
-                                        <span class="input-group-text" id="basic-addon">Customer ID</span>
-                                        <input type="text" 
-                                            name="customerId" 
-                                            class="form-control" 
-                                            aria-label="usernameid" 
-                                            aria-describedby="basic-addon"
-                                            value = {this.state.customerId !== 0 ? this.state.customerId : ''}
-                                            onChange = {this.handleChangeCustomerId}></input>
-                                        <span class="input-group-text" id="basic-addon">Customer Name</span>
-                                        <input type="text" 
-                                            name="fullName" 
-                                            class="form-control" 
-                                            aria-label="Username" 
-                                            aria-describedby="basic-addon"
-                                            value = {this.state.fullName}
-                                            onChange = {this.handleChangeFullname}
-                                        ></input>
+                                            value = {this.state.query}
+                                            onChange = {this.handleChangeQuery}></input>
                                     </div>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                         <input class="btn btn-primary" type="submit" value="Search"></input>

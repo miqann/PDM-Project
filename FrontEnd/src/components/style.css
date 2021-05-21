@@ -472,3 +472,9 @@ a[data-toggle="collapse"]{
 
 	overflow: scroll;
 }
+.test {
+	width: 80%;
+}
+.pl {
+	padding-left: 15%;
+}

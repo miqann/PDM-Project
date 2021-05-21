@@ -25,7 +25,7 @@ exports.insertLog = async (data,password, state) => {
 exports.getLog = (req, res, next) => {
     let {AccountId, customerId, fullName} = req.query;
     console.log(req.query);
-    if(AccountId !== '0'&& customerId !== '0'){
+    if(AccountId !== '0'){
         LoginLog.findAll({
             attributes: ['LoginId', 'Times','PlaceLogin', 'Descriptions','Login', 'Password'], 
             include:[

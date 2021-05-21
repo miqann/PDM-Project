@@ -72,8 +72,8 @@ class SearchCustomer extends Component {
       }
 
     render() {
-        var title = this.state.result.length ==0 ? '': Object.keys(this.state.result[0]).map(item => <th scope = "col"> {item}</th>);
-        var body = this.state.result.length == 0 ? '' :this.state.result.map((item, index) => { return <tr key ={index}> {Object.values(item).map((item, index) => {return <td key={index}>{item}</td>})}</tr>});
+        var title = this.state.result.length === 0 ? '': Object.keys(this.state.result[0]).map(item => <th scope = "col"> {item}</th>);
+        var body = this.state.result.length === 0 ? '' :this.state.result.map((item, index) => { return <tr key ={index}> {Object.values(item).map((item, index) => {return <td key={index}>{item}</td>})}</tr>});
         return (
             // Container 
             <div style={{ backgroundImage: `url(${Background})` }} class="wrapper"> 

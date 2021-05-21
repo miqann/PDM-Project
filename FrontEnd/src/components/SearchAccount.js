@@ -2,8 +2,70 @@ import React, { Component } from 'react';
 import './style.css';
 import {Link } from 'react-router-dom';
 import Background from './image/bg2.png';
+import axios from 'axios';
+
 class SearchCustomer extends Component {
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this); // bind this function
+        this.handleChangefullname= this.handleChangefullname.bind(this);// bind this function
+        this.handleChangeAccountId= this.handleChangeAccountId.bind(this);// bind this function
+        this.handleChangeAccountStatus= this.handleChangeAccountStatus.bind(this);// bind this function
+        this.handleChangeCustomerId= this.handleChangeCustomerId.bind(this); //bind this function
+        this.state = {
+            AccountId: 0,
+            customerId:0,
+            fullName: '',
+            result:'',
+        };
+    }
+
+     //set data of phonenumber when typing
+     handleChangefullname = (event) => {
+        this.setState({fullName: event.target.value}); 
+    }
+
+    //set data of email when typing
+    handleChangeAccountId = (event) =>  {
+        this.setState({AccountId: event.target.value});
+    }
+
+    handleChangeAccountStatus = (event) =>  {
+        this.setState({AccountStatus: event.target.value});
+    }
+
+//set data of city when typing
+    handleChangeCustomerId = (event) =>  {
+        this.setState({customerId: event.target.value});
+    }
+
+    handleSubmit =(event) => {
+        let {customerId, AccountId, fullName, AccountStatus} = this.state; // declare variable using es6
+        let path=`http://localhost:1080/account/search`; // declare url to server
+        event.preventDefault();
+        axios.get(path, {
+            params: {
+                AccountId: AccountId,
+                customerId: customerId,
+                fullName: fullName,
+                AccountStatus: AccountStatus,
+            }
+        }) // post data to server
+            .then (res => {
+                console.log(res.data);
+                alert ('Get data successfully!')
+                this.setState({result: res.data})
+                console.log(this.state.result);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+      }
+
     render() {
+        var title = this.state.result.length === 0 ? '': Object.keys(this.state.result[0]).map(item => <th scope = "col"> {item.substring(item.indexOf('.')+1)}</th>);
+        var body = this.state.result.length === 0 ? '' :this.state.result.map((item, index) => { return <tr key ={index}> {Object.values(item).map((item, index) => {return <td key={index}>{item}</td>})}</tr>});
+        
         return (
             // Container 
             <div style={{ backgroundImage: `url(${Background})` }} class="wrapper"> 
@@ -40,14 +102,40 @@ class SearchCustomer extends Component {
                         <div class = "bodySearch">
                             <h4>Search Account</h4>
                             <div class = "search">
-                                <form >
+                                <form onSubmit={this.handleSubmit}>
                                     <div class="input-group mb-1">
                                         <span class="input-group-text" id="basic-addon">Account ID</span>
-                                        <input type="text" name="accountid" class="form-control" aria-label="Accountname" aria-describedby="basic-addon"></input>
+                                        <input type="text" 
+                                            name="accountId" 
+                                            class="form-control" 
+                                            aria-label="Accountname"  
+                                            aria-describedby="basic-addon"
+                                            value = {this.state.AccountId !== 0 ? this.state.AccountId : ''}
+                                            onChange = {this.handleChangeAccountId}></input>
+                                        <span class="input-group-text" id="basic-addon">Customer ID</span>
+                                        <input type="text" 
+                                            name="customerId" 
+                                            class="form-control" 
+                                            aria-label="date" 
+                                            aria-describedby="basic-addon"
+                                            value = {this.state.customerId !== 0 ? this.state.customerId : ''}
+                                            onChange = {this.handleChangeCustomerId}></input>
                                         <span class="input-group-text" id="basic-addon">Customer Name</span>
-                                        <input type="text" name="username" class="form-control" aria-label="date" aria-describedby="basic-addon"></input>
-                                        <span class="input-group-text" id="basic-addon">Date Opened</span>
-                                        <input type="text" name="date" class="form-control" aria-label="balance" aria-describedby="basic-addon"></input>
+                                        <input type="text" 
+                                            name="fullName" 
+                                            class="form-control" 
+                                            aria-label="balance" 
+                                            aria-describedby="basic-addon"
+                                            value = {this.state.fullName}
+                                            onChange = {this.handleChangefullname}></input>
+                                        <span class="input-group-text" id="basic-addon">Customer Name</span>
+                                        <input type="text" 
+                                            name="accountStatus" 
+                                            class="form-control" 
+                                            aria-label="balance" 
+                                            aria-describedby="basic-addon"
+                                            value = {this.state.AccountStatus}
+                                            onChange = {this.handleChangeAccountStatus}></input>
                                     </div>
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                         <button class="btn btn-primary " type="submit" value="Search">Search</button>
@@ -55,28 +143,14 @@ class SearchCustomer extends Component {
                                 </form>
                             </div>
                             <div class = "form">
-                            <table class="table align-center table-striped">
+                            <table class="table align-center table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Acount ID</th>
-                                        <th scope="col">Account Name</th>
-                                        <th scope="col">Customer ID</th>
-                                        <th scope="col">Customer Name</th> 
-                                        <th scope="col">Date Opened</th> 
-                                        <th scope="col">Account Status</th> 
-                                        <th scope="col">Account Type</th> 
+                                        {title}
                                     </tr>
                                 </thead>
                                 <tbody>
-                                        <tr>
-                                            <td scope="row">1</td>
-                                            <td>Mark</td>
-                                            <td>01</td>
-                                            <td>Phan Thi</td>
-                                            <td>19/05/2020</td>
-                                            <td>Online</td>
-                                            <td>Vjp</td>
-                                        </tr>
+                                        {body}
                                 </tbody>
                             </table>
                             </div>

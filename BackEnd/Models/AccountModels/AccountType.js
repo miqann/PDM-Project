@@ -10,7 +10,7 @@ const AccountType = db.define('AccountType', {
         autoIncrement: true,
         allowNull: false,   
     },
-    AccountTypeDescription: {
+    AccountTypesDescription: {
         type: DataTypes.STRING(40),
     }
 }, {

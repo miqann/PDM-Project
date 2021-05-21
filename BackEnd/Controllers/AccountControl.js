@@ -1,5 +1,8 @@
 
 const Account = require('../Models/AccountModels/AccountModel');
+const AccountType = require('../Models/AccountModels/AccountType');
+const AccountStatus = require('../Models/AccountModels/AccountStatus');
+const e = require('express');
 
 exports.getAccount=  (username) => {
     return Account.findAll({
@@ -25,4 +28,115 @@ exports.createAccount = (accountId, customerId, fullName, userName, password) =>
     } catch (err) {
         console.log(err);
     }
+}
+
+
+exports.searchAccount = (req,res,next) => {
+    let {AccountId, customerId, fullName, AccountStatus} = req.query;
+    console.log(req.query);
+    if(AccountStatus !== '' && AccountId === '0') {
+        Account.findAll({
+            attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
+            include:[
+                {
+                attributes: ['CustomerName'],
+                association:'customer'
+                },{
+                    attributes:['AccountTypesDescription'],
+                    association: 'accountType'
+                },{
+                    attributes:['AccountStatusDescription'],
+                    association:'accountStatus',
+                    where: {
+                        AccountStatusDescription: AccountStatus
+                    }
+                }
+            ],
+            raw:true,
+        })
+        .then(result => {
+            res.json(result);
+            console.log(JSON.stringify(result, null, 2));
+        });
+    }
+    if(AccountId !== '0'){
+        Account.findAll({
+            attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
+            where: {
+                AccountId: AccountId,
+            },
+            include:[
+                {
+                attributes: ['CustomerName'],
+                association:'customer'
+                },{
+                    attributes:['AccountTypesDescription'],
+                    association: 'accountType'
+                },{
+                    attributes:['AccountStatusDescription'],
+                    association:'accountStatus',
+                }
+            ],
+            raw:true,
+    
+        })
+        .then(result => {
+            res.json(result);
+            console.log(JSON.stringify(result, null, 2));
+    
+        })
+    }
+    if(customerId === '0' && AccountId === '0' && fullName === ''){
+        Account.findAll({
+            attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
+            include:[
+                {
+                attributes: ['CustomerName'],
+                association:'customer'
+                },{
+                    attributes:['AccountTypesDescription'],
+                    association: 'accountType'
+                },{
+                    attributes:['AccountStatusDescription'],
+                    association:'accountStatus',
+                }
+            ],
+            raw:true,
+    
+        })
+        .then(result => {
+            res.json(result);
+            console.log(JSON.stringify(result, null, 2));
+    
+        })
+    }
+    if(customerId !== 0 && AccountId === '0' && fullName !== ''){
+        Account.findAll({
+            attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
+            include:[
+                {
+                attributes: ['CustomerName'],
+                association:'customer',
+                where: {
+                    customerId: customerId,
+                    customerName: fullName,
+                }
+                },{
+                    attributes:['AccountTypesDescription'],
+                    association: 'accountType'
+                },{
+                    attributes:['AccountStatusDescription'],
+                    association:'accountStatus',
+                }
+            ],
+            raw:true,
+    
+        })
+        .then(result => {
+            res.json(result);
+            console.log(JSON.stringify(result, null, 2));
+    
+        })
+    }
+    
 }

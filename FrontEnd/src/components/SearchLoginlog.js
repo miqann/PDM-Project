@@ -56,8 +56,8 @@ class SearchLoginlog extends Component {
         }) // post data to server
             .then (res => {
                 console.log(res.data);
-                alert ('Get data successfully!')
-                this.setState({result: res.data})
+                alert ('Get data successfully!');
+                this.setState({result: res.data});
                 console.log(this.state.result);
             })
             .catch(err => {

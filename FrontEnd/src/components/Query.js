@@ -15,7 +15,7 @@ class SearchLoginlog extends Component {
         this.handleChangeQuery= this.handleChangeQuery.bind(this);// bind this function
         this.state = {
             query: '',
-            result: ''
+            result: '',
         };
     }
 
@@ -33,21 +33,20 @@ class SearchLoginlog extends Component {
                 query:query
             }
         }) // post data to server
-            .then (res => {
-                console.log(res.data);
-
-                alert ('Get data successfully!')
-                this.setState({result: res.data})
-                console.log(this.state.result);
-            })
-            .catch(err => {
-                console.log(err);
-                alert(err);
-            })
+        .then (res => {
+            console.log(res.data);
+            alert ('Get data successfully!');
+            this.setState({result: res.data});
+            console.log(this.state.result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     render() {
         var title = this.state.result.length === 0 ? '': Object.keys(this.state.result[0]).map(item => <th scope = "col"> {item.substring(item.indexOf('.')+1)}</th>);
+
         var body = this.state.result.length === 0 ? '' :this.state.result.map((item, index) => { return <tr key ={index}> {Object.values(item).map((item, index) => {return <td key={index}>{item}</td>})}</tr>});
        
         return (

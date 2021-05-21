@@ -62,8 +62,14 @@ class SearchCustomer extends Component {
         }) // post data to server
             .then (res => {
                 console.log(res.data);
-                alert ('Get data successfully!')
-                this.setState({result: res.data})
+                
+                this.setState({result: res.data});
+                if(this.state.result.length !== 0) {
+                    alert ('Get data successfully!');
+                }
+                else {
+                    alert('Not Found!');
+                }
                 console.log(this.state.result);
             })
             .catch(err => {

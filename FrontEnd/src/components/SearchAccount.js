@@ -13,8 +13,8 @@ class SearchCustomer extends Component {
         this.handleChangeAccountStatus= this.handleChangeAccountStatus.bind(this);// bind this function
         this.handleChangeCustomerId= this.handleChangeCustomerId.bind(this); //bind this function
         this.state = {
-            AccountId: 0,
-            customerId:0,
+            AccountId: '',
+            customerId:'',
             fullName: '',
             result:'',
         };
@@ -53,8 +53,13 @@ class SearchCustomer extends Component {
         }) // post data to server
             .then (res => {
                 console.log(res.data);
-                alert ('Get data successfully!')
-                this.setState({result: res.data})
+                this.setState({result: res.data});
+                if(this.state.result.length !== 0) {
+                    alert ('Get data successfully!');
+                }
+                else {
+                    alert('Not Found!');
+                }
                 console.log(this.state.result);
             })
             .catch(err => {

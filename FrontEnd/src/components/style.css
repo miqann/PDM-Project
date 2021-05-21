@@ -216,9 +216,15 @@ a:focus{
 
 }
 
-.cover{
+.transfer-cover{
 	margin-top:5%;
 	width:auto;
+	height:max-content;
+}
+
+.wallet-cover{
+	margin-top: 10%;
+	width: auto;
 	height:max-content;
 }
 .brand{

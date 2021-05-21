@@ -66,8 +66,19 @@ class UserInterface extends Component{
                             </div>
 
                            
-                            <div class ="container-small">
-                                <div class="cover">
+                            < div class ="container-small">
+                                <div class="wallet-cover">
+                                    <div class="text-big">Available Balances:
+                                        <span class="distance">123.456 VND</span>
+                                    </div>
+                                    <div class="text-big">Credit limit:
+                                        <span class="distance">10.000.000 VND</span>
+                                    </div>
+                                    <div class="text-big">Class:
+                                        <span class="distance">Bronze</span>
+                                    </div>
+                                </div>
+                                <div class="transfer-cover">
                                     <ul class ="text-big">Transferer Information
                                         <li class="text-small">Account ID:</li>
                                         <input class="distance" type="text"></input>
@@ -95,6 +106,7 @@ class UserInterface extends Component{
                                         <button class="btn btn-primary " type="submit" value="Continue">Continue</button>
                                     </div>
                                 </div>
+                                
                                 
                             </div> 
                         

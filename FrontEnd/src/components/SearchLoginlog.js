@@ -142,25 +142,11 @@ class SearchLoginlog extends Component {
                                 <table class="table table-striped align-center">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Login ID</th>
-                                            <th scope="col">Times</th>
-                                            <th scope="col">Place Login</th>
-                                            <th scope="col">Desciptions</th> 
-                                            <th scope="col">Account ID</th> 
-                                            <th scope="col">Account Name</th> 
-                                            <th scope="col">Login Status</th> 
+                                            {title}
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td scope="row"></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                        {body}
                                     </tbody>
                                 </table>
                             </div>

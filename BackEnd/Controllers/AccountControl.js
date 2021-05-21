@@ -110,7 +110,7 @@ exports.searchAccount = (req,res,next) => {
     
         })
     }
-    if(customerId !== 0 && AccountId === '0' && fullName !== ''){
+    if(customerId !== '0' && AccountId === '0' && fullName !== ''){
         Account.findAll({
             attributes: ['AccountId', 'AccountName','DateOpened', 'CurrentBalance','Login'],
             include:[

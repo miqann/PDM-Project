@@ -48,7 +48,7 @@ class SearchCustomer extends Component {
                 AccountId: AccountId,
                 customerId: customerId,
                 fullName: fullName,
-                AccountStatus: AccountStatus,
+                AccountStatus:AccountStatus
             }
         }) // post data to server
             .then (res => {
@@ -128,7 +128,7 @@ class SearchCustomer extends Component {
                                             aria-describedby="basic-addon"
                                             value = {this.state.fullName}
                                             onChange = {this.handleChangefullname}></input>
-                                        <span class="input-group-text" id="basic-addon">Customer Name</span>
+                                        <span class="input-group-text" id="basic-addon">Account status</span>
                                         <input type="text" 
                                             name="accountStatus" 
                                             class="form-control" 

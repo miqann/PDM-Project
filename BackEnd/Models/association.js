@@ -40,6 +40,6 @@ account.belongsTo(customer,{as:'customer', foreignKey: 'CustomerId'} );
 account.hasMany(transactionLog, {foreignKey: 'AccountId'});
 transactionLog.belongsTo(account, {as:'account',foreignKey:'AccountId'});
 account.hasMany(loginLogs,{foreignKey: 'AccountId'});
-loginLogs.belongsTo(account, {foreignKey: 'AccountId'});
+loginLogs.belongsTo(account, { as:'LogAccount',foreignKey: 'AccountId'});
 
 

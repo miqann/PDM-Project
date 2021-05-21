@@ -13,6 +13,7 @@ var CustomerRoute = require('./routes/CustomerRoute'); //router to author
 var LoginRoute = require('./routes/loginRoute');
 var RegisterRoute = require('./routes/registerRoute');
 var AccountRoute = require('./routes/AccountRoute');
+var LoginLog = require('./routes/loginLogRoute');
 
 
 app.use(cors());
@@ -37,6 +38,7 @@ app.use('/customers', CustomerRoute);  // /users is api to call
 app.use('/login', LoginRoute);
 app.use('/register', RegisterRoute);
 app.use('/account', AccountRoute);
+app.use('/loginlog', LoginLog);
 
 db.sync()
   .then(result => app.listen(port, () => {

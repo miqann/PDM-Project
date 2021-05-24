@@ -13,13 +13,13 @@ exports.usingQuery = (req, res, next) => {
                 console.log('result: ');
                 console.log(result);
                 queryTypes[0] === 'SELECT'? res.json(result[0]) : res.json('');
-                res.status(200).json('Get data successfully!');
+
                 // res.json(result);
             })
             .catch (err => {
                 console.log(err);
                 console.log('this is err');
-                res.status(200).json('wrong query!');
+                res.json([]);
             })
         } else {
             res.status(404);

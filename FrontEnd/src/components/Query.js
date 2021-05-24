@@ -34,6 +34,9 @@ class Query extends Component {
             console.log(res.data);
             alert ('Get data successfully!');
             this.setState({result: res.data});
+            if(this.state.result.length === 0) {
+                alert ('not found');
+            }
             console.log(this.state.result);
         })
         .catch(err => {

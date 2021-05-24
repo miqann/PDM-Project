@@ -15,6 +15,7 @@ class SearchCustomer extends Component {
         this.state = {
             AccountId: '',
             customerId:'',
+            AccountStatus:'',
             fullName: '',
             result:'',
         };

@@ -4,10 +4,7 @@ import { Link } from 'react-router-dom';
 import Background from './image/bg2.png';
 import axios from 'axios';
 
-
-
-
-class SearchLoginlog extends Component {
+class Query extends Component {
 
     constructor(props) {
         super(props);
@@ -15,7 +12,7 @@ class SearchLoginlog extends Component {
         this.handleChangeQuery= this.handleChangeQuery.bind(this);// bind this function
         this.state = {
             query: '',
-            result: '',
+            result: [],
         };
     }
 
@@ -45,9 +42,9 @@ class SearchLoginlog extends Component {
     }
 
     render() {
-        var title = this.state.result.length === 0 ? '': Object.keys(this.state.result[0]).map(item => <th scope = "col"> {item.substring(item.indexOf('.')+1)}</th>);
+        var title = (this.state.result.length === 0 ) ? '': Object.keys(this.state.result[0]).map(item => <th scope = "col"> {item.substring(item.indexOf('.')+1)}</th>);
 
-        var body = this.state.result.length === 0 ? '' :this.state.result.map((item, index) => { return <tr key ={index}> {Object.values(item).map((item, index) => {return <td key={index}>{item}</td>})}</tr>});
+        var body = (this.state.result.length === 0 )  ? '' :this.state.result.map((item, index) => { return <tr key ={index}> {Object.values(item).map((item, index) => {return <td key={index}>{item}</td>})}</tr>});
        
         return (
             // Container 
@@ -121,4 +118,4 @@ class SearchLoginlog extends Component {
     }
 }
 
-export default SearchLoginlog;
+export default Query;

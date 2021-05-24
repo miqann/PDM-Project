@@ -4,7 +4,10 @@ const {Sequelize} = require('sequelize'); // get sequelize
 var db = new Sequelize('banking', 'root', 'pa', {
     host: 'localhost',
     dialect: 'mysql',
-  
+    dialectOptions: {
+        useUTC: false,
+    },
+    timezone: "+07:00",
     pool: {
       max: 5,
       min: 0,

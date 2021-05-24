@@ -202,3 +202,14 @@ exports.searchAccount = (req,res,next) => {
     }
     
 }
+
+exports.findAccount = (AccountId) => {
+    return Account.findAll ({
+            where: {
+                AccountId: AccountId,
+            }
+        })
+        // .then(result => {
+        //     console.log(result);
+        // })
+}

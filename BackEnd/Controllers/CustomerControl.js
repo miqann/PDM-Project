@@ -71,7 +71,7 @@ exports.searchCustomer = (req, res,next) => {
                     res.json(result)
                 })
         }
-        if(phoneNumber == '' && fullName !== '') {
+        if(phoneNumber === '' && fullName !== '') {
             customerModel.findAll({
                 where: {
                     CustomerName: fullName,

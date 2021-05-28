@@ -13,16 +13,21 @@ import axios from 'axios';
 class UserInterface extends Component{
     constructor(props) {
         super(props);
+        let {state} = this.props.location;
         this.handleWallet = this.handleWallet.bind(this);
         this.handleTransfer = this.handleTransfer.bind(this);
-        this.handleChangeBank = this.handleChangeBank.bind(this);
+        this.handleChangeBankMDQT= this.handleChangeBankMDQT.bind(this);
+        this.handleChangeBankVCB= this.handleChangeBankVCB.bind(this);
+        this.handleChangeBankTCB= this.handleChangeBankTCB.bind(this);
+        this.handleChangeBankBIDV= this.handleChangeBankBIDV.bind(this);
+        this.handleChangeBankMB= this.handleChangeBankMB.bind(this);
         this.handleChangeBeneAccount = this.handleChangeBeneAccount.bind(this);
         this.handleChangeAmount = this.handleChangeAmount.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             //get data from login
-            AccountId : this.props.location.state.AccountId,
-            currentBalance: this.props.location.state.currentBalance,
+            // AccountId : state.AccountId,
+            // currentBalance: state.currentBalance,
             Wallet: 'wallet-cover',
             Transfer: 'transfer-cover hidden',
             Bank:'MDQT Bank',     
@@ -32,6 +37,15 @@ class UserInterface extends Component{
         }
         
     }
+
+    componentWillMount() {
+        let AccountId = localStorage.getItem("AccountId");
+        let currentBalance = localStorage.getItem("currentBalance");
+        this.setState({
+            AccountId : AccountId,
+            currentBalance: currentBalance,
+        })
+    } 
 
     handleChangeBeneAccount(event) {
         this.setState({BeneAccount: event.target.value});
@@ -51,8 +65,27 @@ class UserInterface extends Component{
         Transfer: 'transfer-cover'});
     }
 
-    handleChangeBank(bank, fee) {
-        this.setState ({Bank: bank, fee: fee});
+    handleChangeBankMDQT(event) {
+        event.preventDefault();
+        this.setState ({Bank: 'MDQT Bank', fee: 2200});
+    }
+
+    handleChangeBankVCB(event) {
+        event.preventDefault();
+        this.setState ({Bank: 'Vietcombank', fee: 6600});
+    }
+
+    handleChangeBankTCB(event) {
+        event.preventDefault();
+        this.setState ({Bank: 'Techcombank', fee: 6600});
+    }
+    handleChangeBankBIDV(event) {
+        event.preventDefault();
+        this.setState ({Bank: 'BIDV', fee: 6600});
+    }
+    handleChangeBankMB(event) {
+        event.preventDefault();
+        this.setState ({Bank: 'MB Bank', fee: 6600});
     }
 
     check(amount, current) {
@@ -71,15 +104,15 @@ class UserInterface extends Component{
             console.log('submit');
             axios.post(path,{AccountId,BeneAccount , Amount, Bank, currentBalance}) // post data to server
                 .then((res) => {
-                    console.log(res.data);
-                    if(res.data = 'transfer successfully!') {
+                    console.log(res.data.message);
+                    if(res.data.message == 'transfer successfully!') {
                         this.setState({
                             currentBalance : currentBalance - fee - Amount, 
                             Wallet: 'wallet-cover',
                             Transfer: 'transfer-cover hidden',
                         })
                     }
-                    alert (`${res.data}`)
+                    alert (`${res.data.message}`);
                 })
         } else {
             alert ('Your balance not enoungh');
@@ -142,7 +175,7 @@ class UserInterface extends Component{
                                         <span class="distance">Bronze</span>
                                     </div>
                                 </div>
-                                <form onSubmit = {this.handleSubmit}>
+                                <form onSubmit ={this.handleSubmit}>
                                 <div class={this.state.Transfer}>
                                     <ul class ="text-big">Sender Information
                                         <li class="text-small">Debit Account</li>
@@ -168,11 +201,11 @@ class UserInterface extends Component{
                                                 <span class= "text">{this.state.Bank}</span>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <button class="dropdown-item" onClick ={() => this.handleChangeBank("MDQT Bank", 2200)}> <span>MDQT Bank</span> </button>
-                                                <button class="dropdown-item" onClick ={() => this.handleChangeBank("Vietcombank",6600)}> <span>Vietcomback</span> </button>
-                                                <button class="dropdown-item" onClick ={() => this.handleChangeBank("Techcombank",6600)}> <span>Techcombank</span> </button>
-                                                <button class="dropdown-item" onClick ={() => this.handleChangeBank("BIDV", 6600)}> <span>BIDV</span> </button>
-                                                <button class="dropdown-item" onClick ={() =>this.handleChangeBank("MB Bank",6600)}> <span>MB Bank</span> </button>
+                                                <button class="dropdown-item" onClick ={this.handleChangeBankMDQT}> <span>MDQT Bank</span> </button>
+                                                <button class="dropdown-item" onClick ={this.handleChangeBankVCB}> <span>Vietcombank</span> </button>
+                                                <button class="dropdown-item" onClick ={this.handleChangeBankTCB}> <span>Techcombank</span> </button>
+                                                <button class="dropdown-item" onClick ={this.handleChangeBankBIDV}> <span>BIDV</span> </button>
+                                                <button class="dropdown-item" onClick ={this.handleChangeBankMB}> <span>MB Bank</span> </button>
                                             </div>
                                         </div>
                                     </ul>
@@ -188,7 +221,7 @@ class UserInterface extends Component{
                                     </ul>
 
                                     <div class=" distance justify-content-md-end">
-                                        <button class="btn btn-primary " type="submit" value="Continue">Submit</button>
+                                        <button class="btn btn-primary " type="submit" value="Continue" >Submit</button>
                                     </div>
                                 </div>
                                 </form>

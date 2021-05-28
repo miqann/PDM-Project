@@ -61,13 +61,10 @@ class Login extends Component{
              //redirect to next page and passing state if login true
             .then(() => {
                 if(this.state.AccountId !== 0) {
+                    localStorage.setItem('AccountId', this.state.AccountId);
+                    localStorage.setItem('currentBalance',this.state.currentBalance);
                     this.props.history.push({
                         pathname: '/userinterface',
-                        state:
-                        {
-                            currentBalance: this.state.currentBalance,
-                            AccountId: this.state.AccountId,
-                        }
                     })
                 }
             })

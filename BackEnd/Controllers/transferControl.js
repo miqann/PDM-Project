@@ -8,7 +8,8 @@ exports.transferNew = (req,res,next) => {
     if (Bank === 'MDQT Bank') {
         AccountControll.findAccount(BeneAccount)
             .then(result => {
-                if (result === 0) {
+                if (result.length === 0) {
+                    console.log(result.length);
                     res.status(200).json({message: 'not found'});
                 } else {
                     console.log(result);
@@ -29,7 +30,7 @@ exports.transferNew = (req,res,next) => {
                         TransactionPlace: "Ho Chi Minh",
                     });
                     db.query(`UPDATE Accounts SET CurrentBalance = ${currentBalance-2200-Amount} WHERE AccountId = ${AccountId}`);
-                    db.query(`UPDATE Accounts SET CurrentBalance = ${result[0].CurrentBalance + Number(Amount)} WHERE AccountId = ${BeneAccount}`);
+                    db.query(`UPDATE Accounts SET CurrentBalance = ${result[0].currentBalance + Number(Amount)} WHERE AccountId = ${BeneAccount}`);
                     res.status(200).json({message:"transfer successfully!"});
                 }
             })
